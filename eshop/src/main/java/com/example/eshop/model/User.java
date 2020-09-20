@@ -1,9 +1,11 @@
 package com.example.eshop.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
-import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -31,8 +33,10 @@ public class User {
     private String password;
     private String confirmPassword;
 
+    private boolean enabled;
 
-    public User(int id, String firstName, String lastName, String gender, String emailId, String password, String confirmPassword) {
+
+    public User(int id, String firstName, String lastName, String gender, String emailId, String password, String confirmPassword, boolean enabled) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,6 +44,7 @@ public class User {
         this.emailId = emailId;
         this.password = password;
         this.confirmPassword = confirmPassword;
+        this.enabled = enabled;
     }
 
     public User(){
@@ -101,4 +106,11 @@ public class User {
         this.confirmPassword = confirmPassword;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }

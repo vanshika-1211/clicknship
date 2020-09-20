@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
+
 
 @RestController
 @Validated
@@ -40,12 +42,21 @@ public class RegistrationController {
     //@CrossOrigin
     public User loginUser(@RequestBody User user) throws Exception {
         String tempEmailId = user.getEmailId();
-        String tempPass = user.getPassword();
+        String tempPass = getEncodedString(user.getPassword());
+
         User userObj = null;
         if(tempEmailId != null && tempPass != null){
                userObj = service.fetchUserByEmailIdAndPassword(tempEmailId, tempPass);
         }
         if(userObj == null) throw new Exception("Bad Credentials");
-        return userObj;
+        else{
+           userObj.setEnabled(true);
+            return userObj;
+        }
+
+    }
+
+    private String getEncodedString(String password) {
+        return Base64.getEncoder().encodeToString(password.getBytes());
     }
 }
