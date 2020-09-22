@@ -1,10 +1,9 @@
 package com.example.eshop.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Email;
+import com.example.eshop.validation.ValidEmail;
+import com.example.eshop.validation.ValidPassword;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,26 +24,29 @@ public class User {
     @NotNull(message = "Enter your Gender")
     private String gender;
 
+    @ValidEmail
     @NotNull(message = "Enter your email")
-    @Email(message="Enter valid email")
-    private String emailId;
+    private String username;
 
+    @ValidPassword
     @NotNull(message = "Enter your password")
     private String password;
     private String confirmPassword;
 
     private boolean enabled;
+    private String roles;
 
 
-    public User(int id, String firstName, String lastName, String gender, String emailId, String password, String confirmPassword, boolean enabled) {
+    public User(int id, String firstName, String lastName, String gender, String username, String password, String confirmPassword, boolean enabled, String roles) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.emailId = emailId;
+        this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.enabled = enabled;
+        this.roles = roles;
     }
 
     public User(){
@@ -57,6 +59,7 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -81,22 +84,19 @@ public class User {
         this.gender = gender;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-
-    }
+    public void setPassword(String password) { this.password = password; }
 
     public String getConfirmPassword() {
         return confirmPassword;
@@ -112,5 +112,13 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 }
