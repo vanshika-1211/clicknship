@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+//creating annotation for password validation
 @Documented
 @Constraint(validatedBy = PasswordValidator.class)
 @Target({ TYPE, FIELD, ANNOTATION_TYPE })

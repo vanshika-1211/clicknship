@@ -2,6 +2,7 @@ package com.example.eshop.model;
 
 public class AuthenticationResponse {
 
+    //returning token
     private final String jwt;
 
     public AuthenticationResponse(String jwt) {

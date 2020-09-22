@@ -6,6 +6,8 @@ import java.util.UUID;
 
 @Entity
 public class ConfirmationToken {
+
+    //creating token id, time_of_creation and unique token
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long tokenId;

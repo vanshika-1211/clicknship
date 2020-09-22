@@ -44,12 +44,15 @@ public class RegistrationController {
     @Autowired
     private RegistrationRepository userRepository;
 
+    //registeration and sending of verification mail
     @PostMapping("/registeruser")
     //@CrossOrigin
     public User registerUser(@RequestBody User user) throws Exception {
+        //checking if email already exists
         String tempUsername = user.getUsername();
         String tempPassword = user.getPassword();
         String tempConfirmPassword = user.getConfirmPassword();
+
         if(tempUsername != null && !"".equals(tempUsername)){
             User userObj = service.fetchUserByUsername(tempUsername);
 
@@ -57,14 +60,17 @@ public class RegistrationController {
                throw new Exception("user with " + tempUsername + "already exists");
             }
         }
+
+        //checking if password matches with confirm_Password
         if(tempPassword.equals(tempConfirmPassword)){
             User userObj = null;
             userObj = service.saveUser(user);
 
+            //accessing token
             ConfirmationToken confirmationToken = new ConfirmationToken(user);
-
             confirmationTokenRepository.save(confirmationToken);
 
+            //sending verification email
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(user.getUsername());
             mailMessage.setSubject("Complete Registration!");
@@ -73,7 +79,6 @@ public class RegistrationController {
                     +"http://localhost:8080/confirm-account?token="+confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
-           // System.out.println("http://localhost:8080/confirm-account?token="+confirmationToken.getConfirmationToken());
 
             return userObj;
         }
@@ -82,6 +87,7 @@ public class RegistrationController {
         }
     }
 
+    //verification of emailId
     @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView confirmUserAccount(ModelAndView modelAndView, @RequestParam("token")String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
@@ -99,6 +105,7 @@ public class RegistrationController {
         return modelAndView;
     }
 
+    //login for user already registered
     @PostMapping("/login")
     //@CrossOrigin
     public User loginUser(@RequestBody User user) throws Exception {
@@ -117,6 +124,7 @@ public class RegistrationController {
 
     }
 
+    //authenticating token of jwt authentication
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
         String pass = getEncodedString(authenticationRequest.getPassword());
@@ -136,6 +144,7 @@ public class RegistrationController {
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 
+    //encoding incoming password to check the encoded password in database
     private String getEncodedString(String password) {
         return Base64.getEncoder().encodeToString(password.getBytes());
     }

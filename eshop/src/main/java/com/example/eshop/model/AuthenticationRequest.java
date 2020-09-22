@@ -1,6 +1,7 @@
 package com.example.eshop.model;
 
 public class AuthenticationRequest {
+    //using username and password for generating unique token
     private String username;
     private String password;
 
@@ -13,9 +14,7 @@ public class AuthenticationRequest {
 
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() { return username; }
 
     public void setUsername(String username) {
         this.username = username;

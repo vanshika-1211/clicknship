@@ -19,10 +19,10 @@ public class RegistrationService implements UserDetailsService {
     private RegistrationRepository repo;
 
     public User saveUser(User user){
-        user.setPassword(getEncodedString(user.getPassword()));
-        user.setConfirmPassword(getEncodedString(user.getConfirmPassword()));
+        user.setPassword(getEncodedString(user.getPassword()));   //encoding password
+        user.setConfirmPassword(getEncodedString(user.getConfirmPassword()));   //encoding confirm_Password
         user.setEnabled(false);
-        return repo.save(user);
+        return repo.save(user);   // saving user
     }
 
     public User fetchUserByUsername(String username){
@@ -33,6 +33,7 @@ public class RegistrationService implements UserDetailsService {
         return repo.findByUsernameAndPassword(username, password);
     }
 
+    // function to encode password
     private String getEncodedString(String password){
         return Base64.getEncoder().encodeToString(password.getBytes());
     }
