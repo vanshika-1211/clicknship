@@ -181,12 +181,12 @@
     </table>
     <column id="165" parent="164" name="ID">
       <Position>1</Position>
-      <DataType>LONG|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="166" parent="164" name="NAME">
       <Position>2</Position>
-      <DataType>VARCHAR(200)|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="167" parent="164" name="PRICE">
@@ -196,27 +196,27 @@
     </column>
     <column id="168" parent="164" name="STOCK">
       <Position>4</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="169" parent="164" name="SELLER">
       <Position>5</Position>
-      <DataType>VARCHAR(200)|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="170" parent="164" name="CATEGORY">
       <Position>6</Position>
-      <DataType>VARCHAR(200)|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="171" parent="164" name="SUBCATEGORY">
       <Position>7</Position>
-      <DataType>VARCHAR(200)|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="172" parent="164" name="PICTUREURL">
       <Position>8</Position>
-      <DataType>VARCHAR(250)|0s</DataType>
+      <DataType>VARCHAR(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="173" parent="164" name="PRIMARY_KEY_1">

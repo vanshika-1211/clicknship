@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
