@@ -219,18 +219,5 @@
       <DataType>VARCHAR(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="173" parent="164" name="PRIMARY_KEY_1">
-      <ObjectId>4</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>71</SourceTextLength>
-      <ColNames>ID</ColNames>
-      <Unique>1</Unique>
-      <AutoCreated>1</AutoCreated>
-    </index>
-    <key id="174" parent="164" name="CONSTRAINT_1">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>ID</ColNames>
-      <Primary>1</Primary>
-    </key>
   </database-model>
 </dataSource>

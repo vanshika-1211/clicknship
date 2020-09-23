@@ -5,8 +5,7 @@ import com.vanshika.ecom.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.constraints.Min;
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -24,14 +23,24 @@ public class ProductServiceImplem implements ProductService {
     }
 
     @Override
-    public Optional<Product> getProduct(@Min(value = 1L, message = "Invalid product ID.") long id) {
-        return productRepository
-                .findById(id);
+    public String findByName(String name) {
+        return (String) productRepository.findByName(name);
     }
 
     @Override
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public String findByCategory(String category) {
+        return (String) productRepository.findByCategory(category);
     }
+
+    @Override
+    public String findBySubCategory(String subCategory) {
+        return (String) productRepository.findBySubCategory(subCategory);
+    }
+
+    @Override
+    public String findByCategoryAndSubCategory(String category, String subCategory) {
+        return (String) productRepository.findByCategoryAndSubCategory(category, subCategory);
+    }
+
 }
 
