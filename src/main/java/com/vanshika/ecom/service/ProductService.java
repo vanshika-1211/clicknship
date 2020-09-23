@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 public interface ProductService {
 
     @NotNull Iterable<Product> getAllProducts();
-    String findByName(String name);
-    String findByCategory(String category);
-    String findBySubCategory(String subCategory);
-    String findByCategoryAndSubCategory(String category, String subCategory);
+    String findUsingName(String name);
+    String findUsingCategory(String category);
+    String findUsingSubCategory(String subCategory);
+    String findUsingCategoryAndSubCategory(String category, String subCategory);
 }

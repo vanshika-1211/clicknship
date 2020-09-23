@@ -182,5 +182,5 @@ insert into PRODUCT values (171, 'Women Jumpsuit', 999.00, 1000, 'Zara', 'Women'
 insert into PRODUCT values (172, 'Women Sweatshirt', 1099.00, 1000, 'Miss Bennett', 'Women', 'Top-wear', 'http://placehold.it/200x100');
 insert into PRODUCT values (173, 'Women Sweatshirt', 1199.00, 1000, 'Max', 'Women', 'Top-wear', 'http://placehold.it/200x100');
 insert into PRODUCT values (174, 'Women Crop Top', 789.00, 1000, 'Zara', 'Women', 'Top-wear', 'http://placehold.it/200x100');
-insert into PRODUCT values (175, 'Women Dress', 899.00, 1000, 'Liestyle', 'Women', 'Top-wear', 'http://placehold.it/200x100');
+insert into PRODUCT values (175, 'Women Dress', 899.00, 1000, 'Lifestyle', 'Women', 'Top-wear', 'http://placehold.it/200x100');
 insert into PRODUCT values (176, 'Women Top', 699.00, 1000, 'Miss Bennett', 'Women', 'Top-wear', 'http://placehold.it/200x100');

@@ -20,8 +20,8 @@ public class Query {
         return (List<Product>) productRepository.findAll();
     }
 
-    public String findByName(String name) {
-        Optional<String> productOptional = Optional.ofNullable(productRepository.findByName(name));
+    public String findUsingName(String name) {
+        Optional<String> productOptional = Optional.ofNullable(productRepository.findUsingName(name));
         if (productOptional.isPresent()) {
             return productOptional.get();
         }
@@ -30,8 +30,8 @@ public class Query {
         }
     }
 
-    public String findByCategory(String category) {
-        Optional<String> productOptional = Optional.ofNullable(productRepository.findByCategory(category));
+    public String findUsingCategory(String category) {
+        Optional<String> productOptional = Optional.ofNullable(productRepository.findUsingCategory(category));
         if (productOptional.isPresent()) {
             return productOptional.get();
         }
@@ -40,8 +40,8 @@ public class Query {
         }
     }
 
-    public String findBySubCategory(String subCategory) {
-        Optional<String> productOptional = Optional.ofNullable(productRepository.findBySubCategory(subCategory));
+    public String findUsingSubCategory(String subCategory) {
+        Optional<String> productOptional = Optional.ofNullable(productRepository.findUsingSubCategory(subCategory));
         if (productOptional.isPresent()) {
             return productOptional.get();
         }
@@ -50,8 +50,8 @@ public class Query {
         }
     }
 
-    public String findByCategoryAndSubCategory(String category, String subCategory) {
-        Optional<String> productOptional = Optional.ofNullable(productRepository.findByCategoryAndSubCategory(category, subCategory));
+    public String findUsingCategoryAndSubCategory(String category, String subCategory) {
+        Optional<String> productOptional = Optional.ofNullable(productRepository.findUsingCategoryAndSubCategory(category, subCategory));
         if (productOptional.isPresent()) {
             return productOptional.get();
         }

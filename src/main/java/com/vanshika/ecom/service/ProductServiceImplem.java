@@ -2,16 +2,16 @@ package com.vanshika.ecom.service;
 
 import com.vanshika.ecom.model.Product;
 import com.vanshika.ecom.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional
 public class ProductServiceImplem implements ProductService {
 
-    private final ProductRepository productRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     public ProductServiceImplem(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -23,23 +23,23 @@ public class ProductServiceImplem implements ProductService {
     }
 
     @Override
-    public String findByName(String name) {
-        return (String) productRepository.findByName(name);
+    public String findUsingName(String name) {
+        return (String) productRepository.findUsingName(name);
     }
 
     @Override
-    public String findByCategory(String category) {
-        return (String) productRepository.findByCategory(category);
+    public String findUsingCategory(String category) {
+        return (String) productRepository.findUsingCategory(category);
     }
 
     @Override
-    public String findBySubCategory(String subCategory) {
-        return (String) productRepository.findBySubCategory(subCategory);
+    public String findUsingSubCategory(String subCategory) {
+        return (String) productRepository.findUsingSubCategory(subCategory);
     }
 
     @Override
-    public String findByCategoryAndSubCategory(String category, String subCategory) {
-        return (String) productRepository.findByCategoryAndSubCategory(category, subCategory);
+    public String findUsingCategoryAndSubCategory(String category, String subCategory) {
+        return (String) productRepository.findUsingCategoryAndSubCategory(category, subCategory);
     }
 
 }
