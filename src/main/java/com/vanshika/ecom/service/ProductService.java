@@ -6,13 +6,12 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
 
-
 @Validated
 public interface ProductService {
 
     @NotNull Iterable<Product> getAllProducts();
-    String findUsingName(String name);
-    String findUsingCategory(String category);
-    String findUsingSubCategory(String subCategory);
-    String findUsingCategoryAndSubCategory(String category, String subCategory);
+    Iterable<Product> findUsingName(String name);
+    Iterable<Product> findUsingCategory(String category);
+    Iterable<Product> findUsingSubCategory(String subCategory);
+    Iterable<Product> findUsingCategoryAndSubCategory(String category, String subCategory);
 }

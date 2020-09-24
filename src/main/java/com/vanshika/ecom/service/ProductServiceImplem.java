@@ -23,23 +23,23 @@ public class ProductServiceImplem implements ProductService {
     }
 
     @Override
-    public String findUsingName(String name) {
-        return (String) productRepository.findUsingName(name);
+    public Iterable<Product> findUsingName(String name) {
+        return productRepository.findUsingName(name);
     }
 
     @Override
-    public String findUsingCategory(String category) {
-        return (String) productRepository.findUsingCategory(category);
+    public Iterable<Product> findUsingCategory(String category) {
+        return productRepository.findUsingCategory(category);
     }
 
     @Override
-    public String findUsingSubCategory(String subCategory) {
-        return (String) productRepository.findUsingSubCategory(subCategory);
+    public Iterable<Product> findUsingSubCategory(String subCategory) {
+        return productRepository.findUsingSubCategory(subCategory);
     }
 
     @Override
-    public String findUsingCategoryAndSubCategory(String category, String subCategory) {
-        return (String) productRepository.findUsingCategoryAndSubCategory(category, subCategory);
+    public Iterable<Product> findUsingCategoryAndSubCategory(String category, String subCategory) {
+        return productRepository.findUsingCategoryAndSubCategory(category, subCategory);
     }
 
 }
