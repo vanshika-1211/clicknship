@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/products")
@@ -27,32 +26,28 @@ public class ProductController {
         return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{name}/productNames")
-    public ResponseEntity<String> getByName(@PathVariable String name) {
-        Optional<String> opt = Optional.ofNullable(productService.findUsingName(name));
-         String list = opt.orElseThrow(ProductNotFoundException::new);
-        return new ResponseEntity<String>(list, HttpStatus.OK);
+    @GetMapping("/productName/{name}")
+    public ResponseEntity<Iterable<Product>> getByName(@PathVariable String name) {
+        Iterable<Product> list = productService.findUsingName(name);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{category}/productCategory")
-    public ResponseEntity<String> getByCategory(@PathVariable String category) {
-        Optional<String> opt = Optional.ofNullable(productService.findUsingCategory(category));
-        String list = opt.orElseThrow(ProductNotFoundException::new);
-        return new ResponseEntity<String>(list, HttpStatus.OK);
+    @GetMapping("/productCategory/{category}")
+    public ResponseEntity<Iterable<Product>> getByCategory(@PathVariable String category) {
+        Iterable<Product> list = productService.findUsingCategory(category);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{subCategory}/productSubCategory")
-    public ResponseEntity<String> getBySubCategory(@PathVariable String subCategory) {
-        Optional<String> opt = Optional.ofNullable(productService.findUsingSubCategory(subCategory));
-        String list = opt.orElseThrow(ProductNotFoundException::new);
-        return new ResponseEntity<String>(list, HttpStatus.OK);
+    @GetMapping("/productSubCategory/{subCategory}")
+    public ResponseEntity<Iterable<Product>> getBySubCategory(@PathVariable String subCategory) {
+        Iterable<Product> list = productService.findUsingSubCategory(subCategory);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{cat}/{subCat}/productCategoryAndSubCategory")
-    public ResponseEntity<String> getByCategoryAndSubCategory(@PathVariable("cat") String category,@PathVariable("subCat") String subCategory) {
-        Optional<String> opt = Optional.ofNullable(productService.findUsingCategoryAndSubCategory(category, subCategory));
-        String list = opt.orElseThrow(ProductNotFoundException::new);
-        return new ResponseEntity<String>(list, HttpStatus.OK);
+    @GetMapping("/productCategory/{cat}/ProductSubCategory/{subCat}")
+    public ResponseEntity<Iterable<Product>> getByCategoryAndSubCategory(@PathVariable("cat") String category, @PathVariable("subCat") String subCategory) {
+        Iterable<Product> list = productService.findUsingCategoryAndSubCategory(category, subCategory);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
 }
