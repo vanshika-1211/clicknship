@@ -46,7 +46,7 @@ public class RegistrationController {
 
     //registeration and sending of verification mail
     @PostMapping("/registeruser")
-    //@CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public User registerUser(@RequestBody User user) throws Exception {
         //checking if email already exists
         String tempUsername = user.getUsername();
@@ -89,6 +89,7 @@ public class RegistrationController {
 
     //verification of emailId
     @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ModelAndView confirmUserAccount(ModelAndView modelAndView, @RequestParam("token")String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
@@ -107,7 +108,7 @@ public class RegistrationController {
 
     //login for user already registered
     @PostMapping("/login")
-    //@CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public User loginUser(@RequestBody User user) throws Exception {
         String tempUsername = user.getUsername();
         String tempPass = getEncodedString(user.getPassword());
@@ -126,6 +127,7 @@ public class RegistrationController {
 
     //authenticating token of jwt authentication
     @PostMapping("/authenticate")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
         String pass = getEncodedString(authenticationRequest.getPassword());
         try {
@@ -144,7 +146,7 @@ public class RegistrationController {
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 
-    //encoding incoming password to check the encoded password in database
+    //encoding incoming password to check with the encoded password in database
     private String getEncodedString(String password) {
         return Base64.getEncoder().encodeToString(password.getBytes());
     }
