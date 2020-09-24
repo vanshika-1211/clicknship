@@ -176,47 +176,70 @@
     <collation id="161" parent="2" name="UKRAINIAN_UKRAINE"/>
     <collation id="162" parent="2" name="VIETNAMESE"/>
     <collation id="163" parent="2" name="VIETNAMESE_VIETNAM"/>
-    <table id="164" parent="4" name="PRODUCT">
+    <table id="164" parent="4" name="CONFIRMATIONTOKEN">
       <ObjectId>3</ObjectId>
     </table>
-    <column id="165" parent="164" name="ID">
+    <table id="165" parent="4" name="USER">
+      <ObjectId>4</ObjectId>
+    </table>
+    <column id="166" parent="164" name="ID">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="166" parent="164" name="NAME">
+    <column id="167" parent="164" name="CREATEDDATE">
+      <Position>2</Position>
+      <DataType>DATE|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="168" parent="164" name="CONFIRMATIONTOKEN">
+      <Position>3</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="169" parent="165" name="USERID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="170" parent="165" name="FIRSTNAME">
       <Position>2</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="167" parent="164" name="PRICE">
+    <column id="171" parent="165" name="LASTNAME">
       <Position>3</Position>
-      <DataType>DECIMAL|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="168" parent="164" name="STOCK">
+    <column id="172" parent="165" name="USERNAME">
       <Position>4</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="169" parent="164" name="SELLER">
+    <column id="173" parent="165" name="GENDER">
       <Position>5</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="170" parent="164" name="CATEGORY">
+    <column id="174" parent="165" name="PASSWORD">
       <Position>6</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="171" parent="164" name="SUBCATEGORY">
+    <column id="175" parent="165" name="CONFIRMPASSWORD">
       <Position>7</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="172" parent="164" name="PICTUREURL">
+    <column id="176" parent="165" name="ROLES">
       <Position>8</Position>
-      <DataType>VARCHAR(150)|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="177" parent="165" name="ENABLED">
+      <Position>9</Position>
+      <DataType>BOOLEAN|0s</DataType>
       <NotNull>1</NotNull>
     </column>
   </database-model>
