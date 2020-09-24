@@ -2,17 +2,16 @@ package com.vanshika.ecom.service;
 
 import com.vanshika.ecom.model.Product;
 import com.vanshika.ecom.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.validation.constraints.Min;
-import java.util.Optional;
 
 @Service
 @Transactional
 public class ProductServiceImplem implements ProductService {
 
-    private final ProductRepository productRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     public ProductServiceImplem(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -24,14 +23,24 @@ public class ProductServiceImplem implements ProductService {
     }
 
     @Override
-    public Optional<Product> getProduct(@Min(value = 1L, message = "Invalid product ID.") long id) {
-        return productRepository
-                .findById(id);
+    public String findUsingName(String name) {
+        return (String) productRepository.findUsingName(name);
     }
 
     @Override
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public String findUsingCategory(String category) {
+        return (String) productRepository.findUsingCategory(category);
     }
+
+    @Override
+    public String findUsingSubCategory(String subCategory) {
+        return (String) productRepository.findUsingSubCategory(subCategory);
+    }
+
+    @Override
+    public String findUsingCategoryAndSubCategory(String category, String subCategory) {
+        return (String) productRepository.findUsingCategoryAndSubCategory(category, subCategory);
+    }
+
 }
 

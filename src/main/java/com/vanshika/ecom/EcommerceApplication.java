@@ -1,11 +1,14 @@
 package com.vanshika.ecom;
 
-import com.vanshika.ecom.model.Product;
-import com.vanshika.ecom.service.ProductService;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DatabasePopulator;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+
 
 @SpringBootApplication
 public class EcommerceApplication {
@@ -14,16 +17,4 @@ public class EcommerceApplication {
         SpringApplication.run(EcommerceApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner runner(ProductService productService) {
-        return args -> {
-            productService.save(new Product(1L, "TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-            productService.save(new Product(2L, "TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-            productService.save(new Product(3L, "TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-            productService.save(new Product(4L, "TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-            productService.save(new Product(5L, "TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-            productService.save(new Product(6L, "TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-            productService.save(new Product(7L,"TV Set", 300.00, 10, "Sony", "Electronics", "TV", "http://placehold.it/200x100"));
-        };
-    }
 }
