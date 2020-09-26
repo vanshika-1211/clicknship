@@ -76,7 +76,7 @@ public class RegistrationController {
             mailMessage.setSubject("Complete Registration!");
             mailMessage.setFrom("gomailsender@gmail.com");
             mailMessage.setText("To confirm your account, please click here : "
-                    +"http://localhost:8080/confirm-account?token="+confirmationToken.getConfirmationToken());
+                    +"http://06e75fbe8e59.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
 
@@ -88,45 +88,52 @@ public class RegistrationController {
     }
 
     //verification of emailId
-    @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
+    @GetMapping(value="/confirm-account")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public ModelAndView confirmUserAccount(ModelAndView modelAndView, @RequestParam("token")String confirmationToken) {
+    public ResponseEntity<?> confirmUserAccount(@RequestParam("token")String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
-
+        System.out.println(token);
         if (token != null) {
             User user = userRepository.findByUsername(token.getUser().getUsername());
             user.setEnabled(true);
             userRepository.save(user);
-            modelAndView.setViewName("accountVerified");
+            ResponseEntity.status(200);
+            return ResponseEntity.ok(" Your account has been Successfully Verified!");
         } else {
-            modelAndView.addObject("message", "The link is invalid or broken!");
-            modelAndView.setViewName("error");
+            ResponseEntity.status(404);
+            return ResponseEntity.notFound().build();
         }
-
-        return modelAndView;
     }
 
     //login for user already registered
     @PostMapping("/login")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public User loginUser(@RequestBody User user) throws Exception {
-        String tempUsername = user.getUsername();
-        String tempPass = getEncodedString(user.getPassword());
+    public ResponseEntity<?> loginUser(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+        String tempUsername = authenticationRequest.getUsername();
+        String tempPass = getEncodedString(authenticationRequest.getPassword());
 
         User userObj = null;
         if(tempUsername != null && tempPass != null){
-               userObj = service.fetchUserByUsernameAndPassword(tempUsername, tempPass);
+            userObj = service.fetchUserByUsernameAndPassword(tempUsername, tempPass);
         }
         if(userObj == null) throw new Exception("Bad Credentials");
         else{
-           userObj.setEnabled(true);
-            return userObj;
-        }
 
+            final UserDetails userDetails = service
+                    .loadUserByUsername(authenticationRequest.getUsername());
+
+            if (userDetails.isEnabled()) {
+                final String jwt = jwtTokenUtil.generateToken(userDetails);
+                return ResponseEntity.ok(new AuthenticationResponse(jwt));
+            }
+            else {
+                return ResponseEntity.ok("Not Verified!");
+            }
+        }
     }
 
     //authenticating token of jwt authentication
-    @PostMapping("/authenticate")
+    /*@PostMapping("/authenticate")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
         String pass = getEncodedString(authenticationRequest.getPassword());
@@ -144,7 +151,7 @@ public class RegistrationController {
 
         final String jwt =jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
-    }
+    }*/
 
     //encoding incoming password to check with the encoded password in database
     private String getEncodedString(String password) {

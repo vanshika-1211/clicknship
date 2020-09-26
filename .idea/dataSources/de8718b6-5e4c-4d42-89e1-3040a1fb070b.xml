@@ -176,71 +176,63 @@
     <collation id="161" parent="2" name="UKRAINIAN_UKRAINE"/>
     <collation id="162" parent="2" name="VIETNAMESE"/>
     <collation id="163" parent="2" name="VIETNAMESE_VIETNAM"/>
-    <table id="164" parent="4" name="CONFIRMATIONTOKEN">
+    <sequence id="164" parent="4" name="SYSTEM_SEQUENCE_32F3B12D_F053_4DAF_AE46_79FDE2011DF0">
+      <ObjectId>4</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CacheSize>32</CacheSize>
+      <AutoCreated>1</AutoCreated>
+    </sequence>
+    <table id="165" parent="4" name="USER">
       <ObjectId>3</ObjectId>
     </table>
-    <table id="165" parent="4" name="USER">
-      <ObjectId>4</ObjectId>
-    </table>
-    <column id="166" parent="164" name="ID">
+    <column id="166" parent="165" name="USER_ID">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="167" parent="164" name="CREATEDDATE">
-      <Position>2</Position>
-      <DataType>DATE|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="168" parent="164" name="CONFIRMATIONTOKEN">
-      <Position>3</Position>
-      <DataType>VARCHAR(128)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="169" parent="165" name="USERID">
-      <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="170" parent="165" name="FIRSTNAME">
+    <column id="167" parent="165" name="FIRSTNAME">
       <Position>2</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="171" parent="165" name="LASTNAME">
+    <column id="168" parent="165" name="LASTNAME">
       <Position>3</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="172" parent="165" name="USERNAME">
+    <column id="169" parent="165" name="USERNAME">
       <Position>4</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="173" parent="165" name="GENDER">
+    <column id="170" parent="165" name="GENDER">
       <Position>5</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="174" parent="165" name="PASSWORD">
+    <column id="171" parent="165" name="PASSWORD">
       <Position>6</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="175" parent="165" name="CONFIRMPASSWORD">
+    <column id="172" parent="165" name="CONFIRMPASSWORD">
       <Position>7</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="176" parent="165" name="ROLES">
+    <column id="173" parent="165" name="ROLES">
       <Position>8</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="177" parent="165" name="ENABLED">
+    <column id="174" parent="165" name="ENABLED">
       <Position>9</Position>
       <DataType>BOOLEAN|0s</DataType>
-      <NotNull>1</NotNull>
+    </column>
+    <column id="175" parent="165" name="WISHLIST">
+      <Position>10</Position>
+      <DataType>BINARY|0s</DataType>
     </column>
   </database-model>
 </dataSource>

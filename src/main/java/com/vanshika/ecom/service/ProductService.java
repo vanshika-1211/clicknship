@@ -5,6 +5,7 @@ import com.vanshika.ecom.model.Product;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Validated
 public interface ProductService {
@@ -14,4 +15,5 @@ public interface ProductService {
     Iterable<Product> findUsingCategory(String category);
     Iterable<Product> findUsingSubCategory(String subCategory);
     Iterable<Product> findUsingCategoryAndSubCategory(String category, String subCategory);
+    Product findUsingId(Long id);
 }

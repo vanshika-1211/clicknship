@@ -6,6 +6,7 @@ import com.vanshika.ecom.validation.ValidPassword;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class User {
@@ -29,7 +30,7 @@ public class User {
     @NotNull(message = "Enter your email")
     private String username;
 
-    @ValidPassword
+    @Size(min = 6, max = 30)
     @NotNull(message = "Enter your password")
     private String password;
     private String confirmPassword;
@@ -37,8 +38,10 @@ public class User {
     private boolean enabled;
     private String roles;
 
+    private String wishlist = "";
 
-    public User(int id, String firstName, String lastName, String gender, String username, String password, String confirmPassword, boolean enabled, String roles) {
+
+    public User(int id, @NotNull(message = "Enter your first name") @Size(min = 2, max = 30) String firstName, @NotNull(message = "Enter your last name") @Size(min = 2, max = 30) String lastName, @NotNull(message = "Enter your Gender") String gender, @NotNull(message = "Enter your email") String username, @Size(min = 6, max = 30) @NotNull(message = "Enter your password") String password, String confirmPassword, boolean enabled, String roles, String wishlist) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,6 +51,7 @@ public class User {
         this.confirmPassword = confirmPassword;
         this.enabled = enabled;
         this.roles = roles;
+        this.wishlist = wishlist;
     }
 
     public User(){
@@ -122,5 +126,14 @@ public class User {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
+    public String getWishlist() {
+        return wishlist;
+    }
+
+    public void setWishlist(String wishlist) {
+        this.wishlist = wishlist;
+    }
+
 }
 

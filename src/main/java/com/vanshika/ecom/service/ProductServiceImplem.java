@@ -42,5 +42,10 @@ public class ProductServiceImplem implements ProductService {
         return productRepository.findUsingCategoryAndSubCategory(category, subCategory);
     }
 
+    @Override
+    public Product findUsingId(Long id) {
+        return productRepository.findUsingId(id);
+    }
+
 }
 

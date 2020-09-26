@@ -2,11 +2,14 @@ package com.vanshika.ecom.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private Long id;
 
     @NotNull(message = "Product name is required")
@@ -20,7 +23,7 @@ public class Product {
     private String pictureUrl;
 
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl) {
+    public Product(Long id, @NotNull(message = "Product name is required") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl) {
         this.id = id;
         this.name = name;
         this.price = price;
