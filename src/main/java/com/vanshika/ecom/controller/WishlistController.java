@@ -1,6 +1,5 @@
 package com.vanshika.ecom.controller;
 
-import com.vanshika.ecom.model.Product;
 import com.vanshika.ecom.model.User;
 import com.vanshika.ecom.model.WishlistRequest;
 import com.vanshika.ecom.repository.ProductRepository;
@@ -31,6 +30,7 @@ public class WishlistController {
     private ProductServiceImplem prodService;
 
    @PostMapping("/addToWishlist")
+   @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<String> addToWishlist(@RequestBody WishlistRequest wishReq){
        String username = wishReq.getUsername();
        String prodId = wishReq.getProductId();
@@ -43,6 +43,7 @@ public class WishlistController {
    }
 
    @GetMapping("/myWishlist/{username}")
+   @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<String>> myWishlist(@PathVariable String username){
        User user = service.fetchUserByUsername(username);
 
@@ -51,6 +52,7 @@ public class WishlistController {
    }
 
    @DeleteMapping("removeFromWishlist")
+   @CrossOrigin(origins = "*", allowedHeaders = "*")
    public List<String> removeFromWishlist(@RequestBody WishlistRequest wishReq){
        String username = wishReq.getUsername();
        String prodId = wishReq.getProductId();
@@ -61,7 +63,6 @@ public class WishlistController {
        int l = str.length();
        String s = "", str1 = "";
        List<String> list = new ArrayList<>();
-       userRepo.save(user);
        for (int i = 0; i < l; i++){
            if(str.charAt(i) == ';'){
                if(s.equals(prodId)){
@@ -81,7 +82,41 @@ public class WishlistController {
        return stringToList(user.getWishlist());
    }
 
-   public List<String> stringToList(String str){
+    @GetMapping("/doesProductExist")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public boolean doesProductExist(@RequestBody WishlistRequest wishReq){
+        String username = wishReq.getUsername();
+        String prodId = wishReq.getProductId();
+
+        User user = service.fetchUserByUsername(username);
+
+        String str = user.getWishlist();
+        int l = str.length(), c = 0;
+        String s = "";
+        for (int i = 0; i < l; i++){
+            if(str.charAt(i) == ';'){
+                if(s.equals(prodId)){
+                    s = "";
+                    c = 1;
+                    break;
+                }
+                else{
+                    s = "";
+                }
+            }
+            else{
+                s += str.charAt(i);
+            }
+        }
+        if(c == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public List<String> stringToList(String str){
        int l = str.length();
        String s = "";
        List<String> list = new ArrayList<>();

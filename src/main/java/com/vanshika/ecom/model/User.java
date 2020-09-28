@@ -1,12 +1,11 @@
 package com.vanshika.ecom.model;
 
 import com.vanshika.ecom.validation.ValidEmail;
-import com.vanshika.ecom.validation.ValidPassword;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
+
 
 @Entity
 public class User {
@@ -39,9 +38,12 @@ public class User {
     private String roles;
 
     private String wishlist = "";
+    private String cart = "";
+    private String cartProdAmt = "";
+    double billingAmt = 0.0;
 
 
-    public User(int id, @NotNull(message = "Enter your first name") @Size(min = 2, max = 30) String firstName, @NotNull(message = "Enter your last name") @Size(min = 2, max = 30) String lastName, @NotNull(message = "Enter your Gender") String gender, @NotNull(message = "Enter your email") String username, @Size(min = 6, max = 30) @NotNull(message = "Enter your password") String password, String confirmPassword, boolean enabled, String roles, String wishlist) {
+    public User(int id, @NotNull(message = "Enter your first name") @Size(min = 2, max = 30) String firstName, @NotNull(message = "Enter your last name") @Size(min = 2, max = 30) String lastName, @NotNull(message = "Enter your Gender") String gender, @NotNull(message = "Enter your email") String username, @Size(min = 6, max = 30) @NotNull(message = "Enter your password") String password, String confirmPassword, boolean enabled, String roles, String wishlist, String cart, String cartProdAmt, double billingAmt) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,6 +54,9 @@ public class User {
         this.enabled = enabled;
         this.roles = roles;
         this.wishlist = wishlist;
+        this.cart = cart;
+        this.cartProdAmt = cartProdAmt;
+        this.billingAmt = billingAmt;
     }
 
     public User(){
@@ -135,5 +140,28 @@ public class User {
         this.wishlist = wishlist;
     }
 
+    public String getCart() {
+        return cart;
+    }
+
+    public void setCart(String cart) {
+        this.cart = cart;
+    }
+
+    public String getCartProdAmt() {
+        return cartProdAmt;
+    }
+
+    public void setCartProdAmt(String cartProdAmt) {
+        this.cartProdAmt = cartProdAmt;
+    }
+
+    public double getBillingAmt() {
+        return billingAmt;
+    }
+
+    public void setBillingAmt(double billingAmt) {
+        this.billingAmt = billingAmt;
+    }
 }
 

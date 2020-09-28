@@ -76,7 +76,7 @@ public class RegistrationController {
             mailMessage.setSubject("Complete Registration!");
             mailMessage.setFrom("gomailsender@gmail.com");
             mailMessage.setText("To confirm your account, please click here : "
-                    +"http://06e75fbe8e59.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken());
+                    +"http://91d7ddfbae13.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
 
@@ -122,7 +122,7 @@ public class RegistrationController {
             final UserDetails userDetails = service
                     .loadUserByUsername(authenticationRequest.getUsername());
 
-            if (userDetails.isEnabled()) {
+            if (userObj.isEnabled()) {
                 final String jwt = jwtTokenUtil.generateToken(userDetails);
                 return ResponseEntity.ok(new AuthenticationResponse(jwt));
             }

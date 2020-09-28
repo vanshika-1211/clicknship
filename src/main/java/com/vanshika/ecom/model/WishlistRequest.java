@@ -26,7 +26,7 @@ public class WishlistRequest {
         return productId;
     }
 
-    public void setProductName(String productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 }

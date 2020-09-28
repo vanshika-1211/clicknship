@@ -176,7 +176,7 @@
     <collation id="161" parent="2" name="UKRAINIAN_UKRAINE"/>
     <collation id="162" parent="2" name="VIETNAMESE"/>
     <collation id="163" parent="2" name="VIETNAMESE_VIETNAM"/>
-    <sequence id="164" parent="4" name="SYSTEM_SEQUENCE_32F3B12D_F053_4DAF_AE46_79FDE2011DF0">
+    <sequence id="164" parent="4" name="SYSTEM_SEQUENCE_271CD004_A77B_42D4_8AE6_2A38A16FF776">
       <ObjectId>4</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CacheSize>32</CacheSize>
@@ -232,7 +232,19 @@
     </column>
     <column id="175" parent="165" name="WISHLIST">
       <Position>10</Position>
-      <DataType>BINARY|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <column id="176" parent="165" name="CART">
+      <Position>11</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <column id="177" parent="165" name="CARTPRODUCTAMT">
+      <Position>12</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <column id="178" parent="165" name="BILLINGAMT">
+      <Position>13</Position>
+      <DataType>DOUBLE|0s</DataType>
     </column>
   </database-model>
 </dataSource>
