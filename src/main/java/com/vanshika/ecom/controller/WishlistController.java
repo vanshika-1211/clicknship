@@ -51,7 +51,7 @@ public class WishlistController {
        return new ResponseEntity<List<String>>(list, HttpStatus.OK);
    }
 
-   @DeleteMapping("removeFromWishlist")
+   @PostMapping("/removeFromWishlist")
    @CrossOrigin(origins = "*", allowedHeaders = "*")
    public List<String> removeFromWishlist(@RequestBody WishlistRequest wishReq){
        String username = wishReq.getUsername();
@@ -82,7 +82,7 @@ public class WishlistController {
        return stringToList(user.getWishlist());
    }
 
-    @GetMapping("/doesProductExist")
+    @PostMapping("/doesProductExist")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public boolean doesProductExist(@RequestBody WishlistRequest wishReq){
         String username = wishReq.getUsername();

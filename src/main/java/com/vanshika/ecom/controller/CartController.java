@@ -3,6 +3,7 @@ package com.vanshika.ecom.controller;
 import com.vanshika.ecom.model.CartRequest;
 import com.vanshika.ecom.model.Product;
 import com.vanshika.ecom.model.User;
+import com.vanshika.ecom.model.WishlistRequest;
 import com.vanshika.ecom.repository.ProductRepository;
 import com.vanshika.ecom.repository.RegistrationRepository;
 import com.vanshika.ecom.service.ProductServiceImplem;
@@ -127,7 +128,7 @@ public class CartController {
         return new ResponseEntity<List<String>>(list, HttpStatus.OK);
     }
 
-   @DeleteMapping("removeFromCart")
+   @PostMapping("removeFromCart")
    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<String> removeFromWishlist(@RequestBody CartRequest cartReq) {
         String username = cartReq.getUsername();
@@ -195,6 +196,7 @@ public class CartController {
     }
 
     @GetMapping("/orderPlaced/{username}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<?> orderPlaced(@PathVariable String username){
         User user = service.fetchUserByUsername(username);
 
@@ -213,6 +215,40 @@ public class CartController {
             prodRepo.save(product);
         }
         return ResponseEntity.ok("Your total bill amount is: " + user.getBillingAmt());
+    }
+
+    @PostMapping("/doesProductExistInCart")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public boolean doesProductExist(@RequestBody CartRequest cartReq) {
+        String username = cartReq.getUsername();
+        String prodId = cartReq.getProductId();
+
+        User user = service.fetchUserByUsername(username);
+
+        String str = user.getCart();
+        int l = str.length(), c = 0;
+        String s = "";
+        for (int i = 0; i < l; i++){
+            if(str.charAt(i) == ';'){
+                if(s.equals(prodId)){
+                    s = "";
+                    c = 1;
+                    break;
+                }
+                else{
+                    s = "";
+                }
+            }
+            else{
+                s += str.charAt(i);
+            }
+        }
+        if(c == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public List<String> stringToList(String str){
