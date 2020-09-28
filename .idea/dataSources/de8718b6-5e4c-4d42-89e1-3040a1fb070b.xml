@@ -214,8 +214,20 @@
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="172" parent="164" name="PICTUREURL">
+    <column id="172" parent="164" name="FIT">
       <Position>8</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="173" parent="164" name="MATERIAL">
+      <Position>9</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="174" parent="164" name="PRODTYPE">
+      <Position>10</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="175" parent="164" name="PICTUREURL">
+      <Position>11</Position>
       <DataType>VARCHAR(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>

@@ -28,6 +28,11 @@ public class ProductServiceImplem implements ProductService {
     }
 
     @Override
+    public Iterable<Product> findUsingId(Long id) {
+        return productRepository.findUsingId(id);
+    }
+
+    @Override
     public Iterable<Product> findUsingCategory(String category) {
         return productRepository.findUsingCategory(category);
     }
@@ -42,5 +47,14 @@ public class ProductServiceImplem implements ProductService {
         return productRepository.findUsingCategoryAndSubCategory(category, subCategory);
     }
 
+    @Override
+    public Iterable<Product> findUsingSellerAndProductType(String seller, String prodType) {
+        return productRepository.findUsingSellerAndProductType(seller, prodType);
+    }
+
+    @Override
+    public Iterable<Product> findUsingSellerAndCategoryAndProductType(String seller, String category, String prodType) {
+        return productRepository.findUsingSellerAndCategoryAndProductType(seller, category, prodType);
+    }
 }
 
