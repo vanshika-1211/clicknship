@@ -3,7 +3,6 @@ package com.vanshika.ecom.controller;
 import com.vanshika.ecom.model.CartRequest;
 import com.vanshika.ecom.model.Product;
 import com.vanshika.ecom.model.User;
-import com.vanshika.ecom.model.WishlistRequest;
 import com.vanshika.ecom.repository.ProductRepository;
 import com.vanshika.ecom.repository.RegistrationRepository;
 import com.vanshika.ecom.service.ProductServiceImplem;
@@ -41,7 +40,7 @@ public class CartController {
         Double amt = Double.parseDouble(prodAmt);    //converting quantity of products to double
 
         User user = service.fetchUserByUsername(username);   //finding user with this username
-        Product product = prodService.findUsingId(id);       //finding product with this id
+        Product product = (Product) prodService.findUsingId(id);       //finding product with this id
 
         if(amt > product.getStock()){
             throw new Exception("Product Out of Stock! Stock remaining:" + product.getStock());
@@ -138,7 +137,7 @@ public class CartController {
         Double amt = Double.parseDouble(prodAmt);
 
         User user = service.fetchUserByUsername(username);
-        Product product = prodService.findUsingId(id);
+        Product product = (Product) prodService.findUsingId(id);
 
        String cart = user.getCart();
        String cartProd = user.getCartProdAmt();
@@ -210,7 +209,7 @@ public class CartController {
             String prodAmt = listOfProdAmt.get(i);
             Integer amt = Integer.parseInt(prodAmt);
 
-            Product product = prodService.findUsingId(id);
+            Product product = (Product) prodService.findUsingId(id);
             product.setStock(product.getStock()-amt);
             prodRepo.save(product);
         }

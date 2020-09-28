@@ -34,6 +34,13 @@ public class ProductController {
         return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/productId/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public ResponseEntity<Iterable<Product>> getById(@PathVariable Long id) {
+        Iterable<Product> list = (Iterable<Product>) productService.findUsingId(id);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
+    }
+
     @GetMapping("/productCategory/{category}")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Iterable<Product>> getByCategory(@PathVariable String category) {
@@ -48,11 +55,24 @@ public class ProductController {
         return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/productCategory/ProductSubCategory/{cat}/{subCat}")
+    @GetMapping("/productCategory/productSubCategory/{cat}/{subCat}")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Iterable<Product>> getByCategoryAndSubCategory(@PathVariable("cat") String category, @PathVariable("subCat") String subCategory) {
         Iterable<Product> list = productService.findUsingCategoryAndSubCategory(category, subCategory);
         return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/productSeller/productType/{seller}/{prodType}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public ResponseEntity<Iterable<Product>> getBySellerAndProductType(@PathVariable String seller, @PathVariable String prodType) {
+        Iterable<Product> list = productService.findUsingSellerAndProductType(seller, prodType);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/productSeller/productCategory/productType/{seller}/{category}/{prodType}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public ResponseEntity<Iterable<Product>> getByCategoryAndSubCategory(@PathVariable String seller, @PathVariable String category, @PathVariable String prodType) {
+        Iterable<Product> list = productService.findUsingSellerAndCategoryAndProductType(seller, category, prodType);
+        return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
+    }
 }

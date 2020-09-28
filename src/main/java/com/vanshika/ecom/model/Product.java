@@ -20,9 +20,12 @@ public class Product {
     private String category;
     private String subCategory;
     private String pictureUrl;
+    private String fit;
+    private String material;
+    private String prodType;
 
 
-    public Product(Long id, @NotNull(message = "Product name is required") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl) {
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl, String fit, String material, String prodType) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -31,6 +34,10 @@ public class Product {
         this.category = category;
         this.subCategory = subCategory;
         this.pictureUrl = pictureUrl;
+        this.fit=fit;
+        this.material=material;
+        this.prodType=prodType;
+
     }
 
     public Product() {
@@ -100,4 +107,27 @@ public class Product {
         this.pictureUrl = pictureUrl;
     }
 
+    public String getFit() {
+        return fit;
+    }
+
+    public void setFit(String fit) {
+        this.fit = fit;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public String getProdType() {
+        return prodType;
+    }
+
+    public void setProdType(String prodType) {
+        this.prodType = prodType;
+    }
 }
