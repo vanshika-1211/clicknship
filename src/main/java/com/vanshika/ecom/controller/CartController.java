@@ -40,7 +40,7 @@ public class CartController {
         Double amt = Double.parseDouble(prodAmt);    //converting quantity of products to double
 
         User user = service.fetchUserByUsername(username);   //finding user with this username
-        Product product = (Product) prodService.findUsingId(id);       //finding product with this id
+        Product product = prodService.findProductUsingId(id);       //finding product with this id
 
         if(amt > product.getStock()){
             throw new Exception("Product Out of Stock! Stock remaining:" + product.getStock());
@@ -137,7 +137,7 @@ public class CartController {
         Double amt = Double.parseDouble(prodAmt);
 
         User user = service.fetchUserByUsername(username);
-        Product product = (Product) prodService.findUsingId(id);
+        Product product = prodService.findProductUsingId(id);
 
        String cart = user.getCart();
        String cartProd = user.getCartProdAmt();
@@ -209,7 +209,7 @@ public class CartController {
             String prodAmt = listOfProdAmt.get(i);
             Integer amt = Integer.parseInt(prodAmt);
 
-            Product product = (Product) prodService.findUsingId(id);
+            Product product = prodService.findProductUsingId(id);
             product.setStock(product.getStock()-amt);
             prodRepo.save(product);
         }
