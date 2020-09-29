@@ -139,7 +139,8 @@ public class RegistrationController {
                 mailMessage.setSubject("Complete Registration!");
                 mailMessage.setFrom("gomailsender@gmail.com");
                 mailMessage.setText("This is new confirmation link, to confirm your account, please click here: "
-                        +"http://91d7ddfbae13.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken());
+                        +"http://91d7ddfbae13.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken()
+                        + "\n\n\n\nRegards: @Team ClickNShip");
 
                 emailService.sendEmail(mailMessage);
                 return ResponseEntity.ok("Not Verified!");

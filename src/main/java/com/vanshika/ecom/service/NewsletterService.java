@@ -11,18 +11,12 @@ public class NewsletterService {
     EmailService emailService;
     SimpleMailMessage mailMessage = new SimpleMailMessage();
 
-    public void sendNewsletter(User user, boolean status){
+    public void sendNewsletter(String username){
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(user.getUsername());
+        mailMessage.setTo(username);
         mailMessage.setSubject("Subscription for Newsletter");
         mailMessage.setFrom("gomailsender@gmail.com");
-        if(status){
-            mailMessage.setText("Thank you for subscribing to our newsletter!  Regards: Team ClickNShip");
-        }
-        else{
-            mailMessage.setText("You have successfully unsubscribed from ClickNShip's newsletter.  Regards: Team ClickNShip");
-        }
-
+        mailMessage.setText("Thank you for subscribing to our newsletter! You will be now be updated regarding our offers and amazing discounts.\n\n\n\nRegards: @Team ClickNShip");
         emailService.sendEmail(mailMessage);
     }
 

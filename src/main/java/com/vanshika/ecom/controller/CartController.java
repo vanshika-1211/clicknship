@@ -220,20 +220,43 @@ public class CartController {
             Integer amt = Integer.parseInt(prodAmt);
 
             Product product = prodService.findProductUsingId(id);
+
+            //sending mail to seller
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setTo(product.getSellerUsername());
+            mailMessage.setSubject("Product sold!");
+            mailMessage.setFrom("gomailsender@gmail.com");
+            mailMessage.setText("Hello seller! Your product with following specifications:\n\nProduct Name: " + product.getName() + "\nProduct Category: " + product.getCategory() + "\nProduct Subcategory: "
+                    + product.getSubCategory() + "\nProduct Quantity: " + amt + "\nProduct Price: " + product.getPrice() + "\nTotal Amount: " + amt*product.getPrice()
+                            +  "\n\nhas been sold. Thank you for your cooperation. \n\n\n\nRegards: @Team ClickNShip.");
+
+            emailService.sendEmail(mailMessage);
+
             product.setStock(product.getStock()-amt);
             prodRepo.save(product);
         }
 
-        //sending mail when order has been placed successfully
+        //clearing cart
+        user.setCart("");
+        user.setCartProdAmt("");
+        userRepo.save(user);
+
+        //sending mail to buyer
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(user.getUsername());
         mailMessage.setSubject("Order Placed successful");
         mailMessage.setFrom("gomailsender@gmail.com");
-        mailMessage.setText("Hello " + user.getFirstName() + "! ThankYou for shopping with us!! Your order has been successfully placed. Your total billing amount: $"
-         + user.getBillingAmt() + " P.s. Your order wont be delivered to you due to delivery and payment issues. For further information contact our Customer Service. We hope to see you soon!");
+        mailMessage.setText("Hello " + user.getFirstName() + "!\n\n ThankYou for shopping with us!! Your order has been successfully placed. Your total billing amount: $"
+         + user.getBillingAmt() + "\n\n P.s. Your order won't be delivered to you due to delivery and payment issues. For further information contact our Customer Service. We hope to see you soon!\n\n\n\nRegards: @Team ClickNShip");
 
         emailService.sendEmail(mailMessage);
-        return ResponseEntity.ok("Your total bill amount is: " + user.getBillingAmt());
+
+        //reinitializing billing amount
+        double amtPayable = user.getBillingAmt();
+        user.setBillingAmt(0.0);
+        userRepo.save(user);
+
+        return ResponseEntity.ok("Your total bill amount is: " + amtPayable);
     }
 
     @PostMapping("/doesProductExistInCart")

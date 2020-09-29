@@ -64,6 +64,18 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/productSellerUsername/{sellerUsername}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public ResponseEntity<Iterable<Product>> getBySellerUsername(@PathVariable String sellerUsername) throws ProductNotFoundException {
+        try {
+            Iterable<Product> list = productService.findUsingSellerUsername(sellerUsername);
+            return new ResponseEntity<Iterable<Product>>(list, HttpStatus.OK);
+        }
+        catch (Exception e){
+            throw new ProductNotFoundException();
+        }
+    }
+
     @GetMapping("/productSubCategory/{subCategory}")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Iterable<Product>> getBySubCategory(@PathVariable String subCategory) throws ProductNotFoundException {

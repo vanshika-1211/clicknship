@@ -21,9 +21,10 @@ public class Product {
     private String fit;
     private String material;
     private String prodType;
+    private String sellerUsername;
 
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl, String fit, String material, String prodType) {
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl, String fit, String material, String prodType, String sellerUsername) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -35,7 +36,7 @@ public class Product {
         this.fit=fit;
         this.material=material;
         this.prodType=prodType;
-
+        this.sellerUsername=sellerUsername;
     }
 
 
@@ -130,5 +131,11 @@ public class Product {
         this.prodType = prodType;
     }
 
+    public String getSellerUsername() {
+        return sellerUsername;
+    }
 
+    public void setSellerUsername(String sellerUsername) {
+        this.sellerUsername = sellerUsername;
+    }
 }

@@ -17,7 +17,6 @@ public class UserPrincipal implements UserDetails {
     public UserPrincipal(User user, String roles){
         this.user = user;
         this.roles = roles;
-        user.setNewsletterService(false);
     }
 
     @Override

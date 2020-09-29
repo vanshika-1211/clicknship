@@ -42,8 +42,6 @@ public class User {
     private String cartProdAmt = "";
     double billingAmt = 0.0;
 
-    private boolean newsletterService;
-
 
     public User(int id, @NotNull(message = "Enter your first name") @Size(min = 2, max = 30) String firstName, @NotNull(message = "Enter your last name") @Size(min = 2, max = 30) String lastName, @NotNull(message = "Enter your Gender") String gender, @NotNull(message = "Enter your email") String username, @Size(min = 6, max = 30) @NotNull(message = "Enter your password") String password, String confirmPassword, boolean enabled, String roles, String wishlist, String cart, String cartProdAmt, double billingAmt) {
         this.id = id;
@@ -166,12 +164,5 @@ public class User {
         this.billingAmt = billingAmt;
     }
 
-    public boolean isNewsletterService() {
-        return newsletterService;
-    }
-
-    public void setNewsletterService(boolean newsletterService) {
-        this.newsletterService = newsletterService;
-    }
 }
 

@@ -14,6 +14,7 @@ public interface ProductService {
     Iterable<Product> findUsingId(Long id);
     Product findProductUsingId(Long id);
     Iterable<Product> findUsingCategory(String category);
+    Iterable<Product> findUsingSellerUsername(String sellerUsername);
     Iterable<Product> findUsingSubCategory(String subCategory);
     Iterable<Product> findUsingCategoryAndSubCategory(String category, String subCategory);
     Iterable<Product> findUsingSellerAndProductType(String seller, String prodType);
