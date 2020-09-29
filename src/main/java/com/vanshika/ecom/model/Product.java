@@ -2,13 +2,11 @@ package com.vanshika.ecom.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull(message = "Product name is required")
@@ -39,6 +37,7 @@ public class Product {
         this.prodType=prodType;
 
     }
+
 
     public Product() {
     }
@@ -130,4 +129,6 @@ public class Product {
     public void setProdType(String prodType) {
         this.prodType = prodType;
     }
+
+
 }

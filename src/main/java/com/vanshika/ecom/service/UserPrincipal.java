@@ -17,12 +17,14 @@ public class UserPrincipal implements UserDetails {
     public UserPrincipal(User user, String roles){
         this.user = user;
         this.roles = roles;
+        user.setNewsletterService(false);
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String roles[] = this.roles.split(",");
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for(String role:roles){
+        for (String role : roles) {
             System.out.println(role);
             authorities.add(new SimpleGrantedAuthority(role));
         }

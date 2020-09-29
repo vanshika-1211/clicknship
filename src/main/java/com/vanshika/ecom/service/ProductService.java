@@ -5,7 +5,6 @@ import com.vanshika.ecom.model.Product;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Validated
 public interface ProductService {

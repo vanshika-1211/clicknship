@@ -1,8 +1,10 @@
 package com.vanshika.ecom.repository;
 
 import com.vanshika.ecom.model.Product;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
@@ -26,6 +28,11 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     @Query("select p from Product p where p.seller=:seller and p.category=:category and p.prodType=:prodType")
     Iterable<Product> findUsingSellerAndCategoryAndProductType(String seller, String category, String prodType);
+
+    @Transactional
+    @Modifying
+    @Query("update Product p set p.stock=:stock where p.name=:name and p.seller=:seller and p.category=:category and p.subCategory=:subCategory")
+    void updateProductInfo(String name, String seller, String category, String subCategory);
 
 }
 
