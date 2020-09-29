@@ -71,6 +71,7 @@ public class CartController {
                 s += cart.charAt(i);
             }
         }
+
         //if present, updating quantity of already present prod id
         if(c == 1){
             int cnt1 = 0, l1 = cartProd.length();
@@ -92,6 +93,7 @@ public class CartController {
             user.setCartProdAmt(str1);
             user.setBillingAmt(ba);
         }
+
         //if not present, storing the entered id
         else{
             user.setCart(user.getCart() + prodId + ";");
@@ -146,6 +148,7 @@ public class CartController {
        String cart = user.getCart();
        String cartProd = user.getCartProdAmt();
 
+       //updating quantity of each product in cart
        int l = cart.length(), c = 0, cnt = 0;
        String s = "", str = "";
        for (int i = 0; i < l; i++){
@@ -164,7 +167,7 @@ public class CartController {
                s += cart.charAt(i);
            }
        }
-
+       //updating quantity of each product in cart
        int cnt1 = 0, l1 = cartProd.length();
        String s1 = "",str1 = "";
        double ba = user.getBillingAmt();
@@ -185,6 +188,7 @@ public class CartController {
        user.setBillingAmt(ba);
        userRepo.save(user);
 
+       //returning strings as lists
        List<String> listOfProdId = stringToList(user.getCart());
        List<String> listOfProdAmt = stringToList(user.getCartProdAmt());
        int len = listOfProdId.size();
@@ -195,6 +199,8 @@ public class CartController {
        }
        String s2 = String.valueOf(user.getBillingAmt());
        list.add(s2);
+
+       //returning final cart
        return list;
     }
 
@@ -218,6 +224,7 @@ public class CartController {
             prodRepo.save(product);
         }
 
+        //sending mail when order has been placed successfully
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(user.getUsername());
         mailMessage.setSubject("Order Placed successful");
@@ -237,6 +244,7 @@ public class CartController {
 
         User user = service.fetchUserByUsername(username);
 
+        //finding if cart already contains the product
         String str = user.getCart();
         int l = str.length(), c = 0;
         String s = "";
@@ -255,14 +263,94 @@ public class CartController {
                 s += str.charAt(i);
             }
         }
+        //if Yes
         if(c == 1){
             return true;
         }
+        //if No
         else {
             return false;
         }
     }
 
+    @PostMapping("/cartToWishlist")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    public List<String> cartToWishlist(@RequestBody CartRequest cartReq){
+        //removing from wishlist
+        String username = cartReq.getUsername();
+        String prodId = cartReq.getProductId();
+        String prodAmt = cartReq.getProductAmt();
+        Long id = Long.parseLong(prodId);
+        Double amt = Double.parseDouble(prodAmt);
+
+        User user = service.fetchUserByUsername(username);
+        Product product = prodService.findProductUsingId(id);
+
+        String cart = user.getCart();
+        String cartProd = user.getCartProdAmt();
+
+        //updating cart
+        int l = cart.length(), c = 0, cnt = 0;
+        String s = "", str = "";
+        for (int i = 0; i < l; i++){
+            if(cart.charAt(i) == ';'){
+                if(s.equals(prodId)){
+                    s = "";
+                    c = 1;
+                }
+                else{
+                    if(c == 0) cnt += 1;
+                    str += s + ";";
+                    s = "";
+                }
+            }
+            else{
+                s += cart.charAt(i);
+            }
+        }
+
+        //updating quantity of each product in cart
+        int cnt1 = 0, l1 = cartProd.length();
+        String s1 = "",str1 = "";
+        double ba = user.getBillingAmt();
+        for(int i = 0; i < l1; i++){
+            if(cartProd.charAt(i) == ';'){
+                if(cnt1 == cnt) {
+                    ba -= (Double.parseDouble(s1))*(product.getPrice());
+                    s1 = "";
+                }
+                else str1 += s1 + ";";
+                s1 = "";
+                cnt1 += 1;
+            }
+            else s1 += cartProd.charAt(i);
+        }
+        user.setCart(str);
+        user.setCartProdAmt(str1);
+        user.setBillingAmt(ba);
+        userRepo.save(user);
+
+        //return strings as lists
+        List<String> listOfProdId = stringToList(user.getCart());
+        List<String> listOfProdAmt = stringToList(user.getCartProdAmt());
+        int len = listOfProdId.size();
+
+        List<String> list = new ArrayList<>();
+        for(int i = 0; i < len; i++){
+            list.add(listOfProdId.get(i) + "-" + listOfProdAmt.get(i));
+        }
+        String s2 = String.valueOf(user.getBillingAmt());
+        list.add(s2);
+
+        //adding product to wishlist
+        user.setWishlist(user.getWishlist() + prodId + ";");
+        userRepo.save(user);
+
+        //return new cart
+        return list;
+    }
+
+    //converting string to list
     public List<String> stringToList(String str){
         int l = str.length();
         String s = "";

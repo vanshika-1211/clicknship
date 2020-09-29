@@ -18,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Base64;
+import java.util.UUID;
 
 
 @RestController
@@ -126,8 +127,10 @@ public class RegistrationController {
                 return ResponseEntity.ok(new AuthenticationResponse(jwt));
             }
             else {
-                //accessing token
-                ConfirmationToken confirmationToken = new ConfirmationToken(user);
+                //creating new token and saving it
+                String token = UUID.randomUUID().toString();
+                ConfirmationToken confirmationToken = confirmationTokenRepository.findByTokenId((long)user.getId());
+                confirmationToken.setConfirmationToken(token);
                 confirmationTokenRepository.save(confirmationToken);
 
                 //Resending verification email
@@ -139,11 +142,12 @@ public class RegistrationController {
                         +"http://91d7ddfbae13.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken());
 
                 emailService.sendEmail(mailMessage);
-                return ResponseEntity.ok("Not Verified! A new confirmation link has been sent to: " + tempUsername);
+                return ResponseEntity.ok("Not Verified!");
             }
         }
     }
-    //Returning user details using his username.
+
+    //Returning user details using his/her username.
     @GetMapping("/user/{username}")
     public User findUser(@PathVariable String username){
         User user = service.fetchUserByUsername(username);

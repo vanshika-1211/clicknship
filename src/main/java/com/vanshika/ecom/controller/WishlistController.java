@@ -59,6 +59,7 @@ public class WishlistController {
 
        User user = service.fetchUserByUsername(username);
 
+       //finding product in wishlist and removing it
        String str = user.getWishlist();
        int l = str.length();
        String s = "", str1 = "";
@@ -90,6 +91,7 @@ public class WishlistController {
 
         User user = service.fetchUserByUsername(username);
 
+        //checking if product already exists
         String str = user.getWishlist();
         int l = str.length(), c = 0;
         String s = "";
@@ -108,14 +110,17 @@ public class WishlistController {
                 s += str.charAt(i);
             }
         }
+        //if Yes
         if(c == 1){
             return true;
         }
+        // if No
         else {
             return false;
         }
     }
 
+    //converting string to list
     public List<String> stringToList(String str){
        int l = str.length();
        String s = "";
