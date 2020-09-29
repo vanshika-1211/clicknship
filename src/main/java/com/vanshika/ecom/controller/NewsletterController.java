@@ -2,63 +2,60 @@ package com.vanshika.ecom.controller;
 
 import com.vanshika.ecom.model.AuthenticationRequest;
 import com.vanshika.ecom.model.User;
+import com.vanshika.ecom.repository.RegistrationRepository;
 import com.vanshika.ecom.service.NewsletterService;
 import com.vanshika.ecom.service.RegistrationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
-public class NewsletterController{
+public class NewsletterController {
 
-    AuthenticationRequest authenticationRequest;
 
-    NewsletterService newsletterService;
+    @Autowired
+    private NewsletterService newsletterService;
 
-    RegistrationService registrationService;
+    @Autowired
+    private RegistrationService service;
 
-    @PostMapping("/addService")
-    public ResponseEntity<String> addNewsletterService(@RequestBody Map<String,String>user) throws Exception {
-        try {
-            String username=authenticationRequest.getUsername();
-            User u=registrationService.fetchUserByUsername(username);
-            if (u.isNewsletterService()) {
-                return new ResponseEntity<String>("You are already subscribed to our newsletter.", HttpStatus.OK);
-            }
-            u.setNewsletterService(true);
-            newsletterService.sendNewsletter(u, true);
-            return new ResponseEntity<String>("You have been added successfully to ClickNShip's Newsletter service.", HttpStatus.OK);
+    @Autowired
+    private RegistrationRepository userRepo;
+
+    @GetMapping("/addService/{username}")
+    public ResponseEntity<String> addNewsletterService(@PathVariable String username) throws Exception {
+        User user = service.fetchUserByUsername(username);
+        if(user == null){
+            throw new Exception("Username does not exist!");
         }
-        catch (UsernameNotFoundException u){
-            return new ResponseEntity<String>(u.getMessage(), HttpStatus.NOT_FOUND);
+        if (user.isNewsletterService()) {
+            return new ResponseEntity<String>("You are already subscribed to our newsletter.", HttpStatus.OK);
         }
-        catch (Exception e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+        user.setNewsletterService(true);
+        userRepo.save(user);
+        newsletterService.sendNewsletter(user, true);
+        return new ResponseEntity<String>("You have been added successfully to ClickNShip's Newsletter service.", HttpStatus.OK);
+
     }
 
-    @PostMapping("/removeService")
-    public ResponseEntity<String> removeNewsletterService(@RequestBody Map<String,String>user){
-        try{
-            String username=authenticationRequest.getUsername();
-            User u=registrationService.fetchUserByUsername(username);
-            u.setNewsletterService(false);
-            newsletterService.sendNewsletter(u, false);
-            return new ResponseEntity<String>("You have been removed successfully from ClickNShip's Newsletter service.",HttpStatus.OK);
+   @GetMapping("/removeService/{username}")
+    public ResponseEntity<String> removeNewsletterService(@PathVariable String username) throws Exception{
+        User user = service.fetchUserByUsername(username);
+        if(user == null){
+            throw new Exception("username does not exist!");
         }
-        catch (UsernameNotFoundException u){
-            return new ResponseEntity<String>(u.getMessage(), HttpStatus.NOT_FOUND);
-        }
-        catch (Exception e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+        user.setNewsletterService(false);
+        userRepo.save(user);
+        newsletterService.sendNewsletter(user, false);
+        return new ResponseEntity<String>("You have been removed successfully from ClickNShip's Newsletter service.",HttpStatus.OK);
+
     }
 }
+
 
 
 

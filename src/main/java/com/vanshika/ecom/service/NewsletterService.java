@@ -17,10 +17,10 @@ public class NewsletterService {
         mailMessage.setSubject("Subscription for Newsletter");
         mailMessage.setFrom("gomailsender@gmail.com");
         if(status){
-            mailMessage.setText("<h1>Thank you for subscribing to our newsletter!</h1>");
+            mailMessage.setText("Thank you for subscribing to our newsletter!  Regards: Team ClickNShip");
         }
         else{
-            mailMessage.setText("<h1>You have successfully unsubscribed from ClickNShip's newsletter.</h1>");
+            mailMessage.setText("You have successfully unsubscribed from ClickNShip's newsletter.  Regards: Team ClickNShip");
         }
 
         emailService.sendEmail(mailMessage);
