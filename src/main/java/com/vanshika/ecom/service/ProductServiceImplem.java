@@ -33,6 +33,11 @@ public class ProductServiceImplem implements ProductService {
     }
 
     @Override
+    public Product findProductUsingId(Long id) {
+        return productRepository.findProductUsingId(id);
+    }
+
+    @Override
     public Iterable<Product> findUsingCategory(String category) {
         return productRepository.findUsingCategory(category);
     }

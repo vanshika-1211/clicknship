@@ -14,6 +14,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("select p from Product p where p.id=:id")
     Iterable<Product> findUsingId(Long id);
 
+    @Query("select p from Product p where p.id=:id")
+    Product findProductUsingId(Long id);
+
     @Query("select p from Product p where p.category=:category")
     Iterable<Product> findUsingCategory(String category);
 

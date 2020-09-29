@@ -13,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Base64;
 
@@ -111,6 +109,7 @@ public class RegistrationController {
     public ResponseEntity<?> loginUser(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         String tempUsername = authenticationRequest.getUsername();
         String tempPass = getEncodedString(authenticationRequest.getPassword());
+        User user = service.fetchUserByUsername(tempUsername);
 
         User userObj = null;
         if(tempUsername != null && tempPass != null){
@@ -127,31 +126,29 @@ public class RegistrationController {
                 return ResponseEntity.ok(new AuthenticationResponse(jwt));
             }
             else {
-                return ResponseEntity.ok("Not Verified!");
+                //accessing token
+                ConfirmationToken confirmationToken = new ConfirmationToken(user);
+                confirmationTokenRepository.save(confirmationToken);
+
+                //Resending verification email
+                SimpleMailMessage mailMessage = new SimpleMailMessage();
+                mailMessage.setTo(user.getUsername());
+                mailMessage.setSubject("Complete Registration!");
+                mailMessage.setFrom("gomailsender@gmail.com");
+                mailMessage.setText("This is new confirmation link, to confirm your account, please click here: "
+                        +"http://91d7ddfbae13.ngrok.io/confirm-account?token="+confirmationToken.getConfirmationToken());
+
+                emailService.sendEmail(mailMessage);
+                return ResponseEntity.ok("Not Verified! A new confirmation link has been sent to: " + tempUsername);
             }
         }
     }
-
-    //authenticating token of jwt authentication
-    /*@PostMapping("/authenticate")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
-        String pass = getEncodedString(authenticationRequest.getPassword());
-        try {
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), pass)
-            );
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-            throw new Exception("incorrect password or email.");
-        }
-        final UserDetails userDetails = service
-                .loadUserByUsername(authenticationRequest.getUsername());
-
-        final String jwt =jwtTokenUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
-    }*/
+    //Returning user details using his username.
+    @GetMapping("/user/{username}")
+    public User findUser(@PathVariable String username){
+        User user = service.fetchUserByUsername(username);
+        return user;
+    }
 
     //encoding incoming password to check with the encoded password in database
     private String getEncodedString(String password) {

@@ -5,11 +5,13 @@ import com.vanshika.ecom.model.Product;
 import com.vanshika.ecom.model.User;
 import com.vanshika.ecom.repository.ProductRepository;
 import com.vanshika.ecom.repository.RegistrationRepository;
+import com.vanshika.ecom.service.EmailService;
 import com.vanshika.ecom.service.ProductServiceImplem;
 import com.vanshika.ecom.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -30,6 +32,9 @@ public class CartController {
     @Autowired
     private ProductServiceImplem prodService;
 
+    @Autowired
+    private EmailService emailService;
+
     @PostMapping("/addToCart")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<String> addToCart(@RequestBody CartRequest cartReq) throws Exception{
@@ -40,7 +45,7 @@ public class CartController {
         Double amt = Double.parseDouble(prodAmt);    //converting quantity of products to double
 
         User user = service.fetchUserByUsername(username);   //finding user with this username
-        Product product = (Product) prodService.findUsingId(id);       //finding product with this id
+        Product product = prodService.findProductUsingId(id);       //finding product with this id
 
         if(amt > product.getStock()){
             throw new Exception("Product Out of Stock! Stock remaining:" + product.getStock());
@@ -66,7 +71,6 @@ public class CartController {
                 s += cart.charAt(i);
             }
         }
-        System.out.println(c);
         //if present, updating quantity of already present prod id
         if(c == 1){
             int cnt1 = 0, l1 = cartProd.length();
@@ -137,7 +141,7 @@ public class CartController {
         Double amt = Double.parseDouble(prodAmt);
 
         User user = service.fetchUserByUsername(username);
-        Product product = (Product) prodService.findUsingId(id);
+        Product product = prodService.findProductUsingId(id);
 
        String cart = user.getCart();
        String cartProd = user.getCartProdAmt();
@@ -209,10 +213,19 @@ public class CartController {
             String prodAmt = listOfProdAmt.get(i);
             Integer amt = Integer.parseInt(prodAmt);
 
-            Product product = (Product) prodService.findUsingId(id);
+            Product product = prodService.findProductUsingId(id);
             product.setStock(product.getStock()-amt);
             prodRepo.save(product);
         }
+
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(user.getUsername());
+        mailMessage.setSubject("Order Placed successful");
+        mailMessage.setFrom("gomailsender@gmail.com");
+        mailMessage.setText("Hello " + user.getFirstName() + "! ThankYou for shopping with us!! Your order has been successfully placed. Your total billing amount: $"
+         + user.getBillingAmt() + " P.s. Your order wont be delivered to you due to delivery and payment issues. For further information contact our Customer Service. We hope to see you soon!");
+
+        emailService.sendEmail(mailMessage);
         return ResponseEntity.ok("Your total bill amount is: " + user.getBillingAmt());
     }
 
