@@ -182,64 +182,125 @@
       <CacheSize>32</CacheSize>
       <AutoCreated>1</AutoCreated>
     </sequence>
-    <table id="165" parent="4" name="PRODUCT">
+    <sequence id="165" parent="4" name="SYSTEM_SEQUENCE_E4F8A558_0A11_47E6_86E8_E2BDE89EC9CA">
+      <ObjectId>6</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CacheSize>32</CacheSize>
+      <AutoCreated>1</AutoCreated>
+    </sequence>
+    <table id="166" parent="4" name="PRODUCT">
       <ObjectId>3</ObjectId>
     </table>
-    <column id="166" parent="165" name="ID">
+    <table id="167" parent="4" name="SELLER">
+      <ObjectId>5</ObjectId>
+    </table>
+    <column id="168" parent="166" name="ID">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="167" parent="165" name="NAME">
+    <column id="169" parent="166" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="168" parent="165" name="PRICE">
+    <column id="170" parent="166" name="PRICE">
       <Position>3</Position>
       <DataType>DECIMAL|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="169" parent="165" name="STOCK">
+    <column id="171" parent="166" name="STOCK">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="170" parent="165" name="SELLER">
+    <column id="172" parent="166" name="SELLER">
       <Position>5</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="171" parent="165" name="CATEGORY">
+    <column id="173" parent="166" name="CATEGORY">
       <Position>6</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="172" parent="165" name="SUBCATEGORY">
+    <column id="174" parent="166" name="SUBCATEGORY">
       <Position>7</Position>
       <DataType>VARCHAR(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="173" parent="165" name="FIT">
+    <column id="175" parent="166" name="FIT">
       <Position>8</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
-    <column id="174" parent="165" name="MATERIAL">
+    <column id="176" parent="166" name="MATERIAL">
       <Position>9</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
-    <column id="175" parent="165" name="PRODTYPE">
+    <column id="177" parent="166" name="PRODTYPE">
       <Position>10</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
-    <column id="176" parent="165" name="PICBYTE">
+    <column id="178" parent="166" name="PICBYTE">
       <Position>11</Position>
       <DataType>BLOB|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="177" parent="165" name="SELLERUSERNAME">
+    <column id="179" parent="166" name="SELLERUSERNAME">
       <Position>12</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="180" parent="167" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="181" parent="167" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="182" parent="167" name="PRICE">
+      <Position>3</Position>
+      <DataType>DECIMAL|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="183" parent="167" name="STOCK">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="184" parent="167" name="SELLER">
+      <Position>5</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="185" parent="167" name="CATEGORY">
+      <Position>6</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="186" parent="167" name="SUBCATEGORY">
+      <Position>7</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="187" parent="167" name="FIT">
+      <Position>8</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="188" parent="167" name="MATERIAL">
+      <Position>9</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="189" parent="167" name="PRODTYPE">
+      <Position>10</Position>
+      <DataType>VARCHAR(128)|0s</DataType>
+    </column>
+    <column id="190" parent="167" name="SELLERUSERNAME">
+      <Position>11</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
   </database-model>
