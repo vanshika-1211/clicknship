@@ -17,14 +17,18 @@ public class Product {
     private String seller;
     private String category;
     private String subCategory;
-    private String pictureUrl;
+
+    @Lob
+    @Column(length = 1000)
+    private byte[] picByte;
+
     private String fit;
     private String material;
     private String prodType;
     private String sellerUsername;
 
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String pictureUrl, String fit, String material, String prodType, String sellerUsername) {
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, byte[] picByte, String fit, String material, String prodType, String sellerUsername) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -32,7 +36,7 @@ public class Product {
         this.seller = seller;
         this.category = category;
         this.subCategory = subCategory;
-        this.pictureUrl = pictureUrl;
+        this.picByte = picByte;
         this.fit=fit;
         this.material=material;
         this.prodType=prodType;
@@ -99,12 +103,12 @@ public class Product {
         this.seller = seller;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public byte[] getPicByte() {
+        return picByte;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPicByte(byte[] picByte) {
+        this.picByte = picByte;
     }
 
     public String getFit() {
