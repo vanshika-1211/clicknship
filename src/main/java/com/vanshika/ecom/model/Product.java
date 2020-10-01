@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "Product name is required")
@@ -20,7 +20,7 @@ public class Product {
 
     @Lob
     @Column(length = 1000)
-    private byte[] picByte;
+    private String picByte;
 
     private String fit;
     private String material;
@@ -28,7 +28,7 @@ public class Product {
     private String sellerUsername;
 
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, byte[] picByte, String fit, String material, String prodType, String sellerUsername) {
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String fit, String material, String prodType, String sellerUsername) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -36,13 +36,26 @@ public class Product {
         this.seller = seller;
         this.category = category;
         this.subCategory = subCategory;
-        this.picByte = picByte;
+        this.picByte = null;
         this.fit=fit;
         this.material=material;
         this.prodType=prodType;
         this.sellerUsername=sellerUsername;
     }
 
+    public Product(@NotNull(message = "Product name is required.") String name, Double price, Integer stock, String seller, String category, String subCategory, String fit, String material, String prodType, String sellerUsername) {
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.seller = seller;
+        this.category = category;
+        this.subCategory = subCategory;
+        this.picByte = null;
+        this.fit=fit;
+        this.material=material;
+        this.prodType=prodType;
+        this.sellerUsername=sellerUsername;
+    }
 
     public Product() {
     }
@@ -103,11 +116,11 @@ public class Product {
         this.seller = seller;
     }
 
-    public byte[] getPicByte() {
+    public String getPicByte() {
         return picByte;
     }
 
-    public void setPicByte(byte[] picByte) {
+    public void setPicByte(String picByte) {
         this.picByte = picByte;
     }
 

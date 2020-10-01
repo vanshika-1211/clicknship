@@ -17,6 +17,8 @@ public interface ProductService {
     Iterable<Product> findUsingSellerUsername(String sellerUsername);
     Iterable<Product> findUsingSubCategory(String subCategory);
     Iterable<Product> findUsingCategoryAndSubCategory(String category, String subCategory);
-    Iterable<Product> findUsingSellerAndProductType(String seller, String prodType);
-    Iterable<Product> findUsingSellerAndCategoryAndProductType(String seller, String category, String prodType);
+    Iterable<Product> findUsingProductType(String prodType);
+    Iterable<Product> findUsingCategoryAndProductType(String category, String prodType);
+    Iterable<Product> findByUsername(String sellerUsername);
+    void addProduct(Product product);
 }
