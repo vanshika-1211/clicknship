@@ -43,7 +43,7 @@ public class RegistrationController {
     @Autowired
     private RegistrationRepository userRepository;
 
-    //registeration and sending of verification mail
+    //registration and sending of verification mail
     @PostMapping("/registeruser")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public User registerUser(@RequestBody User user) throws Exception {
@@ -150,6 +150,7 @@ public class RegistrationController {
 
     //Returning user details using his/her username.
     @GetMapping("/user/{username}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public User findUser(@PathVariable String username){
         User user = service.fetchUserByUsername(username);
         return user;

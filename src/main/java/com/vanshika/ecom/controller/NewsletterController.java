@@ -1,17 +1,14 @@
 package com.vanshika.ecom.controller;
 
-import com.vanshika.ecom.model.AuthenticationRequest;
-import com.vanshika.ecom.model.User;
 import com.vanshika.ecom.repository.RegistrationRepository;
 import com.vanshika.ecom.service.NewsletterService;
 import com.vanshika.ecom.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class NewsletterController {

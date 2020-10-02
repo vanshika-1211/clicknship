@@ -1,6 +1,6 @@
 insert into PRODUCT values (1, 'Wall Painting', 1899.00, 1000, 'Pepperfry', 'Home and Living', 'Home Decor', NULL, 'Silk Batik', 'painting', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 insert into PRODUCT values (2, 'Ceiling Lamps', 2399.00, 1000, 'Urban Ladder', 'Home and Living', 'Home Decor', NULL, 'Metal', 'lamp', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
-insert into PRODUCT values (3, 'Wall Clock', 1589.00, 1000, 'Hometown', 'Home and Living', 'Home Decor', NULL, 'Wood', 'clock', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
+insert into PRODUCT values (3, 'Wall Clock', 1589.00, 1000, 'Hometown', 'Home and Living', 'Home Decor', NULL, 'Wood', 'Clock', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 insert into PRODUCT values (4, 'Cushion Covers', 2779.00, 1000, 'Home Centre', 'Home and Living', 'Bed and Furnishing', NULL, 'Cotton', 'cushion cover', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 insert into PRODUCT values (5, 'Curtains', 3549.00, 1000, 'Urban Ladder', 'Home and Living', 'Bed and Furnishing', NULL, 'Art Silk', 'curtain', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 insert into PRODUCT values (6, 'Bedsheet and Pillow Cover Set', 2699.00, 1000, 'Hometown', 'Home and Living', 'Bed and Furnishing', NULL, 'Cotton', 'bedsheet', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
@@ -13,11 +13,11 @@ insert into PRODUCT values (12, 'Table Lamps', 3499.00, 1000, 'Pepperfry', 'Home
 insert into PRODUCT values (13, 'Wall Lamps', 3699.00, 1000, 'Pepperfry', 'Home and Living', 'Home Decor', NULL, 'Metal', 'lamp', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 insert into PRODUCT values (14, 'Ceiling Lamps', 2899.00, 1000, 'Urban Ladder', 'Home and Living', 'Home Decor', NULL, 'Metal, Stones', 'lamp', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 insert into PRODUCT values (15, 'Ceiling Lamps', 2399.00, 1000, 'Pepperfry', 'Home and Living', 'Home Decor', NULL, 'Metal', 'lamp', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
-insert into PRODUCT values (16, 'Ceiling Lamp', 3549.00, 1000, 'Urban Ladder', 'Home and Living', 'Home Decor', NULL, 'Handloom', 'lamp', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
+insert into PRODUCT values (16, 'Ceiling Lamps', 3549.00, 1000, 'Urban Ladder', 'Home and Living', 'Home Decor', NULL, 'Handloom', 'lamp', 'http://placehold.it/200x100','15ishaangupta@gmail.com');
 
-insert into PRODUCT values (17, 'Boys Winter Dress-set', 999.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'sweatshirt and pants', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (18, 'Boys Winter Dress-set', 899.00, 1000, 'Lilliput', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'sweatshirt and pants', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (19, 'Boys Pajama Set', 499.00, 1000, 'Cucumber', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and pants', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (17, 'Boys Winter Dress-set', 999.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'sweatshirt and pant', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (18, 'Boys Winter Dress-set', 899.00, 1000, 'Lilliput', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'sweatshirt and pant', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (19, 'Boys Pajama Set', 499.00, 1000, 'Cucumber', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and pant', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (20, 'Boys Indian Dress-set', 1099.00, 1000, 'Lifestyle', 'Kids', 'Boys Clothing', 'Regular', 'Silk', 'kurta pajama', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (21, 'Boys Dress-set', 459.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton, Hosiery', 'shirt and shorts', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (22, 'Boys Dungree Set', 899.00, 1000, 'Cucumber', 'Kids', 'Boys Clothing', 'Regular', 'Cotton, Denim', 'dungree', 'http://placehold.it/200x100',NULL);
@@ -25,12 +25,13 @@ insert into PRODUCT values (23, 'Boys Indian Dress-set', 799.00, 1000, 'Lifestyl
 insert into PRODUCT values (24, 'Boys Dress-set', 349.00, 1000, 'Lilliput', 'Kids', 'Boys Clothing', 'Regular', 'Hosiery', 'tshirt and shorts', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (25, 'Boys Dress-set', 449.00, 1000, 'Cucumber', 'Kids', 'Boys Clothing', 'Regular', 'Jersey Material', 'tshirt and shorts', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (26, 'Boys Dungree Set', 699.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton, Denim', 'dungree', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (27, 'Boys Winter Dress-set', 1789.00, 1000, 'lilliput', 'Kids', 'Boys Clothing', 'Regular', 'Knitted Cotton Blend', 'sweatshirt and pants', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (28, 'Boys Pajama Set', 499.00, 1000, 'Lifestyle', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and pants', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (27, 'Boys Winter Dress-set', 1789.00, 1000, 'Lilliput', 'Kids', 'Boys Clothing', 'Regular', 'Knitted Cotton Blend', 'sweatshirt and pant', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (28, 'Boys Pajama Set', 499.00, 1000, 'Lifestyle', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and pant', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (29, 'Boys Indian Dress-set', 1089.00, 1000, 'Lifestyle', 'Kids', 'Boys Clothing', 'Regular', 'Silk', 'kurta pajama', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (30, 'Boys Dress-set', 599.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and pants', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (30, 'Boys Dress-set', 599.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and pant', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (31, 'Boys Dress-set', 699.00, 1000, 'Gini and Jony', 'Kids', 'Boys Clothing', 'Regular', 'Cotton', 'shirt and shorts', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (32, 'Boys Dress-set', 399.00, 1000, 'Lilliput', 'Kids', 'Boys Clothing', 'Regular', 'Hosiery', 'tshirt and pants', 'http://placehold.it/200x100',NULL);
+
 insert into PRODUCT values (33, 'Girls Indian Dress-set', 1399.00, 1000, 'Lilliput', 'Kids', 'Girls Clothing', 'Custom', 'Cotton, Silk', 'croptop and skirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (34, 'Girls Dress-set', 699.00, 1000, 'Gini and Jony', 'Kids', 'Girls Clothing', 'Regular', 'Cotton, Hosiery', 'shirt and pallazo', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (35, 'Girls Party-wear Dress-set', 899.00, 1000, 'Kapkids', 'Kids', 'Girls Clothing', 'Slim', 'Cotton, Nylon', 'top and capri', 'http://placehold.it/200x100',NULL);
@@ -40,15 +41,15 @@ insert into PRODUCT values (38, 'Girls Indian Dress-set', 999.00, 1000, 'Lillipu
 insert into PRODUCT values (39, 'Girls Dress', 799.00, 1000, 'Little Cucumber', 'Kids', 'Girls Clothing', 'Regular', 'Art Silk', 'dress', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (40, 'Girls Jumpsuit', 899.00, 1000, 'Kapkids', 'Kids', 'Girls Clothing', 'Regular', 'Cotton', 'jumpsuit', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (41, 'Girls Dungree Set', 999.00, 1000, 'Gini and Jony', 'Kids', 'Girls Clothing', 'Regular', 'Cotton, Denim', 'dungree', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (42, 'Girls Dress-set', 599.00, 1000, 'Little Cucumber', 'Kids', 'Girls Clothing', 'Regular', 'Cotton', 'tshirt and legging', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (42, 'Girls Dress-set', 599.00, 1000, 'Little Cucumber', 'Kids', 'Girls Clothing', 'Regular', 'Cotton', 'tshirt and leggings', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (43, 'Girls Partywear Gown', 1099.00, 1000, 'Kapkids', 'Kids', 'Girls Clothing', 'Regular', 'Crepe', 'gown', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (44, 'Girls Pajama Set', 399.00, 1000, 'Gini and Jony', 'Kids', 'Girls Clothing', 'Regular', 'Cotton', 'tshirt and pant', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (45, 'Girls Dress-set', 889.00, 1000, 'Lilliput', 'Kids', 'Girls Clothing', 'Regular', 'Cotton, Georgette', 'top and pallazo', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (46, 'Girls Jumpsuit', 799.00, 1000, 'Little Cucumber', 'Kids', 'Girls Clothing', 'Slim', 'Hosiery', 'jumpsuit', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (47, 'Girls Jumpsuit', 799.00, 1000, 'Kapkids', 'Kids', 'Girls Clothing', 'Regular', 'Crepe', 'jumpsuit', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (48, 'Girls Dugree Set', 1099.00, 1000, 'Gini and Jony', 'Kids', 'Girls Clothing', 'Regular', 'Denim', 'dungree', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (49, 'Boys Shoes', 1099.00, 1000, 'Bata', 'Kids', 'Kids Footwear', 'Regular', 'Artificial Leather', 'shoes', 'http://placehold.it/200x100',NULL);
 
+insert into PRODUCT values (49, 'Boys Shoes', 1099.00, 1000, 'Bata', 'Kids', 'Kids Footwear', 'Regular', 'Artificial Leather', 'shoes', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (50, 'Girls Ballerinas', 999.00, 1000, 'Bubble Gummers', 'Kids', 'Kids Footwear', 'Regular', 'Rubber', 'ballerinas', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (51, 'Boys Shoes', 1199.00, 1000, 'Redtape', 'Kids', 'Kids Footwear', 'Regular', 'Pinatex', 'shoes', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (52, 'Girls Shoes', 1099.00, 1000, 'Bubble Gummers', 'Kids', 'Kids Footwear', 'Regular', 'Synthetic Leather', 'shoes', 'http://placehold.it/200x100',NULL);
@@ -63,7 +64,7 @@ insert into PRODUCT values (60, 'Boys Shoes', 1089.00, 1000, 'Nike', 'Kids', 'Ki
 insert into PRODUCT values (61, 'Boys Shoes', 1279.00, 1000, 'Redtape', 'Kids', 'Kids Footwear', 'Regular', 'Synthetic Leather', 'shoes', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (62, 'Boys Loafers', 899.00, 1000, 'Bata', 'Kids', 'Kids Footwear', 'Regular', 'Artificial Leather', 'loafers', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (63, 'Boys Shoes', 1299.00, 1000, 'Nike', 'Kids', 'Kids Footwear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (64, 'Boys Shoes', 1099.00, 1000, 'Bata', 'Kids', 'Kids Footwear', 'Regular', 'Polyurethane', 'tshirt and pant', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (64, 'Boys Shoes', 1099.00, 1000, 'Bata', 'Kids', 'Kids Footwear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
 
 insert into PRODUCT values (65, 'Men Jeans', 1099.00, 1000, 'Levis', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (66, 'Men Jeans', 1189.00, 1000, 'Levis', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
@@ -76,28 +77,11 @@ insert into PRODUCT values (72, 'Men Trousers', 1399.00, 1000, 'Mast and Harbour
 insert into PRODUCT values (73, 'Men Jeans', 1499.00, 1000, 'Roadster', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (74, 'Men Jeans', 1599.00, 1000, 'Roadster', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (75, 'Men Jeans', 1099.00, 1000, 'Roadster', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (76, 'Men Joggers', 999.00, 1000, 'Roadster', 'Men', 'Bottom-wear', 'Regular', 'Cotton', 'joggers', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (76, 'Men Jeans', 999.00, 1000, 'Roadster', 'Men', 'Bottom-wear', 'Regular', 'Cotton', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (77, 'Men Jeans', 1249.00, 1000, 'Wrogn', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (78, 'Men Jeans', 1459.00, 1000, 'Wrogn', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (79, 'Men Jeans', 1659.00, 1000, 'Wrogn', 'Men', 'Bottom-wear', 'Regular', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (80, 'Men Joggers', 1799.00, 1000, 'Wrogn', 'Men', 'Bottom-wear', 'Regular', 'Cotton', 'joggers', 'http://placehold.it/200x100',NULL);
-
-insert into PRODUCT values (81, 'Men Sports Shoes', 2459.00, 1000, 'Adidas', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Foam', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (82, 'Men Casual Shoes', 1999.00, 1000, 'Adidas', 'Men', 'Foot-wear', 'Regular', 'Synthetic Leather', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (83, 'Men Sports Shoes', 2699.00, 1000, 'Adidas', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Foam', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (84, 'Men Casual Shoes', 1859.00, 1000, 'Adidas', 'Men', 'Foot-wear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (85, 'Men Converse Shoes', 2459.00, 1000, 'Converse', 'Men', 'Foot-wear', 'Regular', 'Canvas, Hard Plastic', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (86, 'Men Converse Shoes', 2699.00, 1000, 'Converse', 'Men', 'Foot-wear', 'Regular', 'Canvas, Hard Plastic', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (87, 'Men Converse Shoes', 2899.00, 1000, 'Converse', 'Men', 'Foot-wear', 'Regular', 'Canvas, Hard Plastic', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (88, 'Men Converse Shoes', 3459.00, 1000, 'Converse', 'Men', 'Foot-wear', 'Regular', 'Canvas, Hard Plastic', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (89, 'Men Sports Shoes', 3559.00, 1000, 'Nike', 'Men', 'Foot-wear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (90, 'Men Sports Shoes', 3699.00, 1000, 'Nike', 'Men', 'Foot-wear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (91, 'Men Sports Shoes', 3789.00, 1000, 'Nike', 'Men', 'Foot-wear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (92, 'Men Sports Shoes', 3889.00, 1000, 'Nike', 'Men', 'Foot-wear', 'Regular', 'Polyurethane', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (93, 'Men Sports Shoes', 3959.00, 1000, 'Puma', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Rubber', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (94, 'Men Sports Shoes', 3999.00, 1000, 'Puma', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Rubber', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (95, 'Men Sports Shoes', 3789.00, 1000, 'Puma', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Rubber', 'shoes', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (96, 'Men Casual Shoes', 3679.00, 1000, 'Puma', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Foam', 'shoes', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (80, 'Men Jeans', 1799.00, 1000, 'Wrogn', 'Men', 'Bottom-wear', 'Regular', 'Cotton', 'jeans', 'http://placehold.it/200x100',NULL);
 
 insert into PRODUCT values (81, 'Men Sports Shoes', 2459.00, 1000, 'Adidas', 'Men', 'Foot-wear', 'Regular', 'Polyurethane, Foam', 'shoes', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (82, 'Men Casual Shoes', 1999.00, 1000, 'Adidas', 'Men', 'Foot-wear', 'Regular', 'Synthetic Leather', 'shoes', 'http://placehold.it/200x100',NULL);
@@ -122,7 +106,7 @@ insert into PRODUCT values (99, 'Men T-Shirt', 699.00, 1000, 'Allen Solly', 'Men
 insert into PRODUCT values (100, 'Men T-Shirt', 679.00, 1000, 'Allen Solly', 'Men', 'Top-wear', 'Slim', 'Cotton Mix', 'tshirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (101, 'Men T-Shirt', 689.00, 1000, 'Here Now', 'Men', 'Top-wear', 'Regular', 'Cotton Mix', 'tshirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (102, 'Men T-Shirt', 659.00, 1000, 'Here Now', 'Men', 'Top-wear', 'Regular', 'Cotton Mix', 'tshirt', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (103, 'Men Polo T-Shirt', 789.00, 1000, 'Here Now', 'Men', 'Top-wear',  'Regular', 'Cotton', 'tshirt', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (103, 'Men Polo T-Shirt', 789.00, 1000, 'Here Now', 'Men',  'Top-wear', 'Regular', 'Cotton', 'tshirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (104, 'Men Polo T-Shirt', 899.00, 1000, 'Here Now', 'Men', 'Top-wear', 'Slim', 'Cotton', 'tshirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (105, 'Men T-Shirt', 599.00, 1000, 'HRX', 'Men', 'Top-wear', 'Slim', 'Cotton Mix', 'tshirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (106, 'Men T-Shirt', 459.00, 1000, 'HRX', 'Men', 'Top-wear', 'Regular', 'Cotton Mix', 'tshirt', 'http://placehold.it/200x100',NULL);
@@ -150,8 +134,9 @@ insert into PRODUCT values (126, 'Travel Trolley', 5679.00, 1000, 'United Colors
 insert into PRODUCT values (127, 'Travel Trolley', 6999.00, 1000, 'Aristocrat', 'Travel Trolley', 'Trolley', NULL, 'Hard Plastic', 'trolley', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (128, 'Travel Trolley', 7499.00, 1000, 'Calvin Klein', 'Travel Trolley', 'Trolley', NULL, 'Hard Plastic', 'trolley', 'http://placehold.it/200x100',NULL);
 
+insert into PRODUCT values (129, 'Women Shorts', 789.00, 1000, 'Max', 'Women', 'Bottom-wear', 'Custom', 'Denim', 'shorts', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (130, 'Women Pallazo Pants', 889.00, 1000, 'Global Desi', 'Women', 'Bottom-wear', 'Regular', 'Silk', 'pallazo', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (131, 'Women Pants', 699.00, 1000, '', 'Lifestyle', 'Bottom-wear', 'Regular', 'Silk', 'pallazo','http://placehold.it/200x100',NULL);
+insert into PRODUCT values (131, 'Women Pants', 699.00, 1000, 'Lifestyle', 'Women', 'Bottom-wear', 'Regular', 'Silk', 'pallazo', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (132, 'Women Jeans', 1789.00, 1000, 'Levis', 'Women', 'Bottom-wear', 'Slim', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (133, 'Women Jeans', 1889.00, 1000, 'Levis', 'Women', 'Bottom-wear', 'Slim', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (134, 'Women Shorts', 879.00, 1000, 'Global Desi', 'Women', 'Bottom-wear', 'Slim', 'Denim', 'shorts', 'http://placehold.it/200x100',NULL);
@@ -159,10 +144,10 @@ insert into PRODUCT values (135, 'Women Trousers', 1099.00, 1000, 'Lifestyle', '
 insert into PRODUCT values (136, 'Women Skirt', 699.00, 1000, 'Max', 'Women', 'Bottom-wear', 'Custom', 'Georgette', 'skirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (137, 'Women Skirt', 599.00, 1000, 'Global Desi', 'Women', 'Bottom-wear', 'Regular', 'Hosiery', 'skirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (138, 'Women Skirt', 799.00, 1000, 'Lifestyle', 'Women', 'Bottom-wear', 'Tailored', 'Chiffon', 'skirt', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (139, 'Women Trousers', 1099.00, 1000, 'Max', 'Women', 'Bottom-wear', 'Tailored', 'Moleskin', 'pants', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (139, 'Women Trousers', 1099.00, 1000, 'Max', 'Women', 'Bottom-wear', 'Tailored', 'Moleskin', 'pant', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (140, 'Women Skirt', 899.00, 1000, 'Lifestyle', 'Women', 'Bottom-wear', 'Slim', 'Chiffon', 'skirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (141, 'Women Jeans', 1789.00, 1000, 'Levis', 'Women', 'Bottom-wear', 'Slim', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
-insert into PRODUCT values (142, 'Women Maxi Skirt', 1889.00, 1000, 'Global Desi', 'Women',  'Bottom-wear', 'Custom', 'Silk', 'skirt', 'http://placehold.it/200x100',NULL);
+insert into PRODUCT values (142, 'Women Maxi Skirt', 1889.00, 1000, 'Global Desi', 'Women', 'Bottom-wear', 'Custom', 'Silk', 'skirt', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (143, 'Women Jeans', 1999.00, 1000, 'Levis', 'Women', 'Bottom-wear', 'Slim', 'Denim', 'jeans', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (144, 'Women Skirt', 1099.00, 1000, 'Max', 'Women', 'Bottom-wear', 'Slim', 'Denim', 'skirt', 'http://placehold.it/200x100',NULL);
 
@@ -199,3 +184,4 @@ insert into PRODUCT values (173, 'Women Sweatshirt', 1199.00, 1000, 'Max', 'Wome
 insert into PRODUCT values (174, 'Women Crop Top', 789.00, 1000, 'Zara', 'Women', 'Top-wear', 'Custom', 'Cotton', 'croptop', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (175, 'Women Dress', 899.00, 1000, 'Lifestyle', 'Women', 'Top-wear', 'Regular', 'Georgette', 'dress', 'http://placehold.it/200x100',NULL);
 insert into PRODUCT values (176, 'Women Top', 699.00, 1000, 'Miss Bennett', 'Women', 'Top-wear', 'Regular', 'Georgette', 'top', 'http://placehold.it/200x100',NULL);
+

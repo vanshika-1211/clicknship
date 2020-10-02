@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/api/products")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -134,8 +133,12 @@ public class ProductController {
 
     @GetMapping("/getSellerProduct/{username}")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public Iterable<Product> getSellerProducts(@PathVariable("username") String sellerUsername){
-        return productService.findByUsername(sellerUsername);
+    public Iterable<Product> getSellerProducts(@PathVariable("username") String sellerUsername) throws ProductNotFoundException {
+        try {
+            return productService.findByUsername(sellerUsername);
+        } catch (Exception e) {
+            throw new ProductNotFoundException();
+        }
     }
 }
 
